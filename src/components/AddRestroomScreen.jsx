@@ -276,7 +276,7 @@ export default function AddRestroomScreen() {
       </div>
 
       {/* Bottom actions */}
-      <div className="px-5 pb-6 pt-3 safe-bottom border-t border-neutral-100 dark:border-neutral-800">
+      <div className="px-5 py-4 border-t border-neutral-100 dark:border-neutral-800" style={{ paddingBottom: 'max(1rem, calc(env(safe-area-inset-bottom) + 1rem))' }}>
         {step < 3 ? (
           <button
             onClick={() => setStep(step + 1)}

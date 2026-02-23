@@ -64,7 +64,7 @@ export default function SearchOverlay() {
           className="fixed inset-0 z-[80] bg-white dark:bg-neutral-950 flex flex-col"
         >
           {/* Search header */}
-          <div className="safe-top px-4 pt-3 pb-2">
+          <div className="px-4 pb-2" style={{ paddingTop: 'max(2rem, calc(env(safe-area-inset-top) + 1rem))' }}>
             <div className="flex items-center gap-3">
               <button
                 onClick={toggleSearch}

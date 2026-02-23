@@ -31,7 +31,7 @@ export default function FilterSheet() {
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed bottom-0 left-0 right-0 z-[56] bg-white dark:bg-neutral-900 rounded-t-3xl max-h-[80vh] overflow-y-auto"
+            className="fixed bottom-0 left-0 right-0 z-[56] bg-white dark:bg-neutral-900 rounded-t-3xl max-h-[80vh] flex flex-col"
           >
             <div className="sheet-handle" />
 
@@ -58,7 +58,8 @@ export default function FilterSheet() {
               </div>
             </div>
 
-            <div className="px-5 pb-8 safe-bottom space-y-6">
+            <div className="flex-1 min-h-0 overflow-y-auto">
+            <div className="px-5 pb-4 space-y-6">
               {/* Distance */}
               <section>
                 <h3 className="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-3">Distance</h3>
@@ -140,7 +141,11 @@ export default function FilterSheet() {
                 </div>
               </section>
 
-              {/* Apply button */}
+            </div>
+          </div>
+
+          {/* Sticky Apply button footer */}
+          <div className="px-5 py-4 bg-white dark:bg-neutral-900 border-t border-neutral-100 dark:border-neutral-800" style={{ paddingBottom: 'max(1rem, calc(env(safe-area-inset-bottom) + 1rem))' }}>
               <button
                 onClick={toggleFilters}
                 className="w-full py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm shadow-lg shadow-primary-600/20 active:scale-[0.98] transition-transform"

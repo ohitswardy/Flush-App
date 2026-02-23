@@ -1,5 +1,6 @@
 import { useApp } from '../context/AppContext'
 import { Search, SlidersHorizontal, Locate, Plus, AlertTriangle } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function MapControls() {
   const {
@@ -11,6 +12,7 @@ export default function MapControls() {
     setUserLocation,
     setLocationPermission,
     isOffline,
+    detailOpen,
   } = useApp()
 
   const hasActiveFilters = activeFilters.openNow || activeFilters.wheelchair ||
@@ -71,25 +73,35 @@ export default function MapControls() {
       )}
 
       {/* FAB cluster - bottom right */}
-      <div className="fixed bottom-6 right-4 z-[42] safe-bottom flex flex-col gap-3">
-        {/* My Location FAB */}
-        <button
-          onClick={handleLocate}
-          className="touch-target w-12 h-12 rounded-full bg-white dark:bg-neutral-800 shadow-lg flex items-center justify-center text-primary-600 dark:text-primary-400 active:scale-95 transition-all hover:shadow-xl"
-          aria-label="Center on my location"
-        >
-          <Locate size={20} />
-        </button>
+      <AnimatePresence>
+        {!detailOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 16 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 16 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 28 }}
+            className="fixed bottom-6 right-4 z-[42] safe-bottom flex flex-col gap-3"
+          >
+            {/* My Location FAB */}
+            <button
+              onClick={handleLocate}
+              className="touch-target w-12 h-12 rounded-full bg-white dark:bg-neutral-800 shadow-lg flex items-center justify-center text-primary-600 dark:text-primary-400 active:scale-95 transition-all hover:shadow-xl"
+              aria-label="Center on my location"
+            >
+              <Locate size={20} />
+            </button>
 
-        {/* Add Restroom FAB */}
-        <button
-          onClick={() => setScreen('add')}
-          className="touch-target w-14 h-14 rounded-full bg-primary-600 shadow-lg shadow-primary-600/30 flex items-center justify-center text-white active:scale-95 transition-all hover:shadow-xl hover:bg-primary-700"
-          aria-label="Add a new restroom"
-        >
-          <Plus size={24} />
-        </button>
-      </div>
+            {/* Add Restroom FAB */}
+            <button
+              onClick={() => setScreen('add')}
+              className="touch-target w-14 h-14 rounded-full bg-primary-600 shadow-lg shadow-primary-600/30 flex items-center justify-center text-white active:scale-95 transition-all hover:shadow-xl hover:bg-primary-700"
+              aria-label="Add a new restroom"
+            >
+              <Plus size={24} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }

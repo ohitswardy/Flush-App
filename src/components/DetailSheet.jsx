@@ -53,14 +53,14 @@ export default function DetailSheet() {
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             className={`fixed bottom-0 left-0 right-0 z-[40] bg-white dark:bg-neutral-900 rounded-t-3xl shadow-sheet transition-all duration-300 ${
-              detailFull ? 'top-12' : 'max-h-[45vh]'
+              detailFull ? 'top-[148px]' : 'max-h-[45vh]'
             } flex flex-col`}
           >
             {/* Drag handle */}
             <button
-              onClick={detailFull ? closeDetail : toggleDetailFull}
+              onClick={toggleDetailFull}
               className="w-full pt-2 pb-1 flex flex-col items-center touch-target"
-              aria-label={detailFull ? 'Minimize' : 'Expand details'}
+              aria-label={detailFull ? 'Collapse details' : 'Expand details'}
             >
               <div className="sheet-handle" />
               <ChevronUp
@@ -69,7 +69,7 @@ export default function DetailSheet() {
               />
             </button>
 
-            <div className="flex-1 overflow-y-auto overscroll-contain">
+            <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain">
               {/* Summary section (always visible) */}
               <div className="px-5 pb-4">
                 <div className="flex items-start justify-between">

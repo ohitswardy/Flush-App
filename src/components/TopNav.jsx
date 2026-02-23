@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useApp } from '../context/AppContext'
 import {
   Menu,
@@ -11,13 +12,13 @@ import {
   LogIn,
   LogOut,
   Heart,
-  MapPin,
   Plus,
   User,
   Shield,
   ChevronRight,
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import SignInModal from './SignInModal'
 
 export default function TopNav() {
   const { menuOpen, toggleMenu, darkMode, setScreen } = useApp()
@@ -32,11 +33,9 @@ export default function TopNav() {
             className="touch-target flex items-center gap-2 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-lg px-4 py-2 shadow-md transition-all duration-200 hover:shadow-lg active:scale-95"
             aria-label="Go to home"
           >
-            <div className="w-7 h-7 rounded-lg bg-primary-600 flex items-center justify-center">
-              <MapPin size={16} className="text-white" strokeWidth={2.5} />
-            </div>
+            <img src="/FlushIcon.png" alt="Flush" className="w-7 h-7 rounded-lg object-contain" />
             <span className="text-[15px] font-bold tracking-tight text-neutral-900 dark:text-white">
-              Banyo
+              FLUSH
             </span>
           </button>
 
@@ -65,7 +64,8 @@ export default function TopNav() {
 }
 
 function SideMenu() {
-  const { closeMenu, darkMode, toggleDarkMode, user, setScreen } = useApp()
+  const { closeMenu, darkMode, toggleDarkMode, user, setUser, setScreen } = useApp()
+  const [signInOpen, setSignInOpen] = useState(false)
 
   const menuItems = [
     { icon: Heart, label: 'Saved Restrooms', action: () => { setScreen('profile'); closeMenu() } },
@@ -104,8 +104,8 @@ function SideMenu() {
         aria-label="Navigation menu"
       >
         {/* Close */}
-        <div className="safe-top flex items-center justify-between px-5 pt-4 pb-3">
-          <span className="text-lg font-semibold text-neutral-900 dark:text-white">Menu</span>
+        <div className="flex items-center justify-between px-5 pb-3" style={{ paddingTop: 'max(1rem, calc(env(safe-area-inset-top) + 1rem))' }}>
+          <span className="text-lg font-semibold text-neutral-900 dark:text-white">FLUSH</span>
           <button onClick={closeMenu} className="touch-target rounded-full p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors" aria-label="Close menu">
             <X size={20} className="text-neutral-600 dark:text-neutral-400" />
           </button>
@@ -125,7 +125,7 @@ function SideMenu() {
             </div>
           ) : (
             <button
-              onClick={closeMenu}
+              onClick={() => setSignInOpen(true)}
               className="flex items-center gap-3 w-full py-2 text-primary-600 dark:text-primary-400 font-medium text-sm"
             >
               <LogIn size={18} />
@@ -133,6 +133,9 @@ function SideMenu() {
             </button>
           )}
         </div>
+
+        {/* Sign In Modal */}
+        <SignInModal open={signInOpen} onClose={() => setSignInOpen(false)} />
 
         {/* Menu items */}
         <nav className="flex-1 overflow-y-auto py-2">
@@ -167,7 +170,13 @@ function SideMenu() {
           </button>
 
           {user && (
-            <button className="flex items-center gap-3 w-full py-2.5 text-sm text-error">
+            <button
+              onClick={() => {
+                localStorage.removeItem('banyo_user')
+                setUser(null)
+              }}
+              className="flex items-center gap-3 w-full py-2.5 text-sm text-error"
+            >
               <LogOut size={18} />
               Sign Out
             </button>

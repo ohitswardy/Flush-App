@@ -27,7 +27,7 @@ const initialState = {
   savedRestrooms: JSON.parse(localStorage.getItem('banyo_saved') || '[]'),
   isOffline: !navigator.onLine,
   currentScreen: 'home', // 'home' | 'search' | 'profile' | 'add' | 'report' | 'settings' | 'privacy' | 'help' | 'feedback' | 'terms'
-  user: null,
+  user: JSON.parse(localStorage.getItem('banyo_user') || 'null'),
 }
 
 function reducer(state, action) {

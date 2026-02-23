@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useApp } from './context/AppContext'
 import { AnimatePresence } from 'framer-motion'
+import LoadingScreen from './components/LoadingScreen'
 import Onboarding from './components/Onboarding'
 import TopNav from './components/TopNav'
 import MapView from './components/MapView'
@@ -28,6 +29,14 @@ export default function App() {
     setUserLocation,
     setLocationPermission,
   } = useApp()
+
+  const [loading, setLoading] = useState(true)
+
+  // Splash screen timer
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 3000)
+    return () => clearTimeout(timer)
+  }, [])
 
   // Listen for online/offline
   useEffect(() => {
@@ -61,11 +70,21 @@ export default function App() {
 
   // Onboarding
   if (!onboardingComplete) {
-    return <Onboarding />
+    return (
+      <>
+        <AnimatePresence mode="wait">
+          {loading && <LoadingScreen key="loading" />}
+        </AnimatePresence>
+        {!loading && <Onboarding />}
+      </>
+    )
   }
 
   return (
     <div className="relative w-full h-full overflow-hidden bg-neutral-100 dark:bg-neutral-950">
+      <AnimatePresence mode="wait">
+        {loading && <LoadingScreen key="loading" />}
+      </AnimatePresence>
       {/* Base map layer */}
       <MapView />
 
