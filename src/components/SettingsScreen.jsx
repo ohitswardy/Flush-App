@@ -262,7 +262,7 @@ function ClearCacheDialog({ onClose }) {
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-        className="bg-white dark:bg-neutral-900 rounded-2xl p-6 w-full max-w-sm shadow-xl"
+        className="bg-white dark:bg-neutral-900 rounded-2xl p-6 w-full max-w-[384px] shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         {cleared ? (

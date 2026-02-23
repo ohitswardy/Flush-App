@@ -56,11 +56,11 @@ export default function FeedbackScreen() {
         </motion.div>
         <h2 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">Thank You!</h2>
         <p className="text-sm text-neutral-500 dark:text-neutral-400 text-center max-w-[280px] mb-8">
-          Your feedback helps us make Banyo better for everyone. We'll review it shortly and get back to you if needed.
+          Your feedback helps us make Flush better for everyone. We'll review it shortly and get back to you if needed.
         </p>
         <button
           onClick={() => setScreen('home')}
-          className="w-full max-w-xs py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm active:scale-[0.98] transition-transform"
+          className="w-full max-w-[320px] py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm active:scale-[0.98] transition-transform"
         >
           Back to Map
         </button>
@@ -95,7 +95,7 @@ export default function FeedbackScreen() {
           </div>
           <div>
             <h2 className="text-lg font-bold text-neutral-900 dark:text-white">We'd love to hear from you</h2>
-            <p className="text-xs text-neutral-400">Your input shapes how Banyo evolves</p>
+            <p className="text-xs text-neutral-400">Your input shapes how Flush evolves</p>
           </div>
         </div>
 
@@ -125,7 +125,7 @@ export default function FeedbackScreen() {
         {/* Overall rating */}
         <div className="mb-5">
           <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2.5 block">
-            How would you rate Banyo overall?
+            How would you rate Flush overall?
           </label>
           <div className="flex gap-1.5">
             {[1, 2, 3, 4, 5].map((n) => (

@@ -77,7 +77,7 @@ export default function AddRestroomScreen() {
         </p>
         <button
           onClick={() => setScreen('home')}
-          className="w-full max-w-xs py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm active:scale-[0.98] transition-transform"
+          className="w-full max-w-[320px] py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm active:scale-[0.98] transition-transform"
         >
           Back to Map
         </button>
