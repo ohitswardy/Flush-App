@@ -105,7 +105,7 @@ export default function SettingsScreen() {
             <SettingsToggle
               icon={<MapPin size={18} />}
               label="Location Sharing"
-              description="Allow Banyo to access your location for nearby results"
+              description="Allow Flush to access your location for nearby results"
               active={locationSharing}
               onChange={() => setLocationSharing(!locationSharing)}
             />
@@ -156,7 +156,7 @@ export default function SettingsScreen() {
           <div className="space-y-2">
             <SettingsNavItem
               icon={<Info size={18} />}
-              label="About Banyo"
+              label="About Flush"
               value="v1.0.0"
             />
             <button

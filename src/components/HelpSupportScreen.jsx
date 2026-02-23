@@ -53,19 +53,19 @@ const faqItems = [
   {
     id: 'offline',
     icon: Smartphone,
-    question: 'Can I use Banyo offline?',
-    answer: 'Banyo caches restroom data you\'ve previously viewed. When you lose internet connectivity, you\'ll see a yellow banner indicating offline mode, and the app will display cached restrooms in your area. Some features like submitting reviews or reports require an internet connection. Clear your cache in Settings > Data & Storage if you want to free up space.',
+    question: 'Can I use Flush offline?',
+    answer: 'Flush caches restroom data you\'ve previously viewed. When you lose internet connectivity, you\'ll see a yellow banner indicating offline mode, and the app will display cached restrooms in your area. Some features like submitting reviews or reports require an internet connection. Clear your cache in Settings > Data & Storage if you want to free up space.',
   },
   {
     id: 'location',
     icon: MapPin,
-    question: "Why does Banyo need my location?",
+    question: "Why does Flush need my location?",
     answer: 'Location access allows us to show restrooms near your current position and calculate distances. We only access your location while the app is in the foreground — never in the background. Location permission is optional; you can search manually by entering an address or place name. You can toggle location sharing in Settings at any time.',
   },
   {
     id: 'account',
     icon: Shield,
-    question: 'Do I need an account to use Banyo?',
+    question: 'Do I need an account to use Flush?',
     answer: 'No — you can browse the map, search for restrooms, and view details without signing in. An account is only required to save restrooms, write reviews, add new restrooms, and submit reports. Your saved restrooms and search history are stored locally on your device even without an account.',
   },
 ]
@@ -143,7 +143,7 @@ export default function HelpSupportScreen() {
               <span className="text-sm font-medium">Send Feedback</span>
             </button>
             <a
-              href="mailto:support@banyo.app"
+              href="mailto:support@flush.app"
               className="flex items-center gap-2.5 p-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 active:scale-[0.98] transition-transform"
             >
               <Mail size={18} />

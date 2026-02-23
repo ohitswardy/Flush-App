@@ -160,7 +160,7 @@ export default function ProfileScreen() {
             <SettingsItem label="Notifications" description="Push & email preferences" />
             <SettingsItem label="Location Privacy" description="Control location sharing" />
             <SettingsItem label="Cache & Data" description="Manage offline data" />
-            <SettingsItem label="About Banyo" description="Version 1.0.0" />
+            <SettingsItem label="About Flush" description="Version 1.0.0" />
           </div>
         )}
       </div>

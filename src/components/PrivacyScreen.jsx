@@ -23,7 +23,7 @@ const sections = [
     content: [
       {
         subtitle: 'Location Data',
-        text: 'When you grant location permission, Banyo accesses your device\'s GPS to show nearby restrooms. We only use your location while the app is active — we never track your location in the background. Your precise location is never stored on our servers; we only process approximate area data to return relevant results.',
+        text: 'When you grant location permission, Flush accesses your device\'s GPS to show nearby restrooms. We only use your location while the app is active — we never track your location in the background. Your precise location is never stored on our servers; we only process approximate area data to return relevant results.',
       },
       {
         subtitle: 'Account Information',
@@ -65,7 +65,7 @@ const sections = [
     content: [
       {
         subtitle: 'We Do Not Sell Your Data',
-        text: 'Banyo does not sell, trade, or rent your personal information to third parties. Period.',
+        text: 'Flush does not sell, trade, or rent your personal information to third parties. Period.',
       },
       {
         subtitle: 'Public Contributions',
@@ -84,7 +84,7 @@ const sections = [
     content: [
       {
         subtitle: 'Your Control',
-        text: 'Location access is entirely optional. You can use Banyo by searching manually without granting location permission. You can revoke location access at any time through your device settings or within the app.',
+        text: 'Location access is entirely optional. You can use Flush by searching manually without granting location permission. You can revoke location access at any time through your device settings or within the app.',
       },
       {
         subtitle: 'What We Access',
@@ -195,7 +195,7 @@ export default function PrivacyScreen() {
             </div>
           </div>
           <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            Banyo is committed to protecting your privacy. We collect only the minimum data needed to help you find restrooms. Here's exactly what we collect, how we use it, and how you stay in control.
+            Flush is committed to protecting your privacy. We collect only the minimum data needed to help you find restrooms. Here's exactly what we collect, how we use it, and how you stay in control.
           </p>
         </div>
 
@@ -251,7 +251,7 @@ export default function PrivacyScreen() {
           <div className="mt-4 p-4 rounded-xl bg-primary-50 dark:bg-primary-900/20 border border-primary-100 dark:border-primary-800">
             <p className="text-sm font-medium text-primary-700 dark:text-primary-300 mb-1">Questions about your privacy?</p>
             <p className="text-xs text-primary-600/70 dark:text-primary-400/70 leading-relaxed">
-              If you have questions, concerns, or requests regarding your data, please reach out through the Send Feedback option in the menu or email privacy@banyo.app.
+              If you have questions, concerns, or requests regarding your data, please reach out through the Send Feedback option in the menu or email privacy@flush.app.
             </p>
           </div>
         </div>

@@ -4,7 +4,7 @@ const AppContext = createContext(null)
 
 const initialState = {
   darkMode: window.matchMedia?.('(prefers-color-scheme: dark)').matches || false,
-  onboardingComplete: localStorage.getItem('banyo_onboarded') === 'true',
+  onboardingComplete: localStorage.getItem('flush_onboarded') === 'true',
   locationPermission: null, // 'granted' | 'denied' | 'prompt' | null
   userLocation: null,
   selectedRestroom: null,
@@ -23,11 +23,11 @@ const initialState = {
     familyRoom: false,
     babyChanging: false,
   },
-  recentSearches: JSON.parse(localStorage.getItem('banyo_recent') || '[]'),
-  savedRestrooms: JSON.parse(localStorage.getItem('banyo_saved') || '[]'),
+  recentSearches: JSON.parse(localStorage.getItem('flush_recent') || '[]'),
+  savedRestrooms: JSON.parse(localStorage.getItem('flush_saved') || '[]'),
   isOffline: !navigator.onLine,
   currentScreen: 'home', // 'home' | 'search' | 'profile' | 'add' | 'report' | 'settings' | 'privacy' | 'help' | 'feedback' | 'terms'
-  user: JSON.parse(localStorage.getItem('banyo_user') || 'null'),
+  user: JSON.parse(localStorage.getItem('flush_user') || 'null'),
 }
 
 function reducer(state, action) {
@@ -35,11 +35,11 @@ function reducer(state, action) {
     case 'TOGGLE_DARK_MODE': {
       const next = !state.darkMode
       document.documentElement.classList.toggle('dark', next)
-      localStorage.setItem('banyo_dark', next)
+      localStorage.setItem('flush_dark', next)
       return { ...state, darkMode: next }
     }
     case 'COMPLETE_ONBOARDING':
-      localStorage.setItem('banyo_onboarded', 'true')
+      localStorage.setItem('flush_onboarded', 'true')
       return { ...state, onboardingComplete: true }
     case 'SET_LOCATION_PERMISSION':
       return { ...state, locationPermission: action.payload }
@@ -67,7 +67,7 @@ function reducer(state, action) {
       return { ...state, activeFilters: initialState.activeFilters }
     case 'ADD_RECENT_SEARCH': {
       const recent = [action.payload, ...state.recentSearches.filter(s => s !== action.payload)].slice(0, 8)
-      localStorage.setItem('banyo_recent', JSON.stringify(recent))
+      localStorage.setItem('flush_recent', JSON.stringify(recent))
       return { ...state, recentSearches: recent }
     }
     case 'TOGGLE_SAVED': {
@@ -75,7 +75,7 @@ function reducer(state, action) {
       const saved = state.savedRestrooms.includes(id)
         ? state.savedRestrooms.filter(s => s !== id)
         : [...state.savedRestrooms, id]
-      localStorage.setItem('banyo_saved', JSON.stringify(saved))
+      localStorage.setItem('flush_saved', JSON.stringify(saved))
       return { ...state, savedRestrooms: saved }
     }
     case 'SET_OFFLINE':

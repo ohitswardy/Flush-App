@@ -18,7 +18,7 @@ const sections = [
     icon: UserCheck,
     title: '1. Acceptance of Terms',
     paragraphs: [
-      'By downloading, installing, or using Banyo ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.',
+      'By downloading, installing, or using Flush ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.',
       'We may update these Terms from time to time. Continued use of the App after changes constitute acceptance of the updated Terms. We will notify you of significant changes through the App or email.',
     ],
   },
@@ -26,7 +26,7 @@ const sections = [
     icon: Globe,
     title: '2. Description of Service',
     paragraphs: [
-      'Banyo is a community-driven platform that helps users find, rate, and review public restrooms. The App provides location-based search, user reviews, accessibility information, and community reporting features.',
+      'Flush is a community-driven platform that helps users find, rate, and review public restrooms. The App provides location-based search, user reviews, accessibility information, and community reporting features.',
       'The service is provided "as is" and relies on user-submitted data. While we strive for accuracy, we cannot guarantee that all restroom information (availability, hours, amenities, cleanliness) is current or correct at any given time.',
     ],
   },
@@ -34,7 +34,7 @@ const sections = [
     icon: ShieldCheck,
     title: '3. User Accounts',
     paragraphs: [
-      'You may browse Banyo without an account. To contribute content (reviews, restroom submissions, reports), you must create an account with a valid email address.',
+      'You may browse Flush without an account. To contribute content (reviews, restroom submissions, reports), you must create an account with a valid email address.',
       'You are responsible for maintaining the security of your account credentials. You agree to provide accurate information and to update it as necessary. One person may not maintain multiple accounts.',
       'We reserve the right to suspend or terminate accounts that violate these Terms.',
     ],
@@ -43,7 +43,7 @@ const sections = [
     icon: ScrollText,
     title: '4. User-Generated Content',
     paragraphs: [
-      'By submitting content (reviews, photos, restroom listings, reports), you grant Banyo a non-exclusive, worldwide, royalty-free license to use, display, reproduce, and distribute that content within the App and related marketing materials.',
+      'By submitting content (reviews, photos, restroom listings, reports), you grant Flush a non-exclusive, worldwide, royalty-free license to use, display, reproduce, and distribute that content within the App and related marketing materials.',
       'You retain ownership of your content and may request its removal at any time. Upon deletion, we will remove the content within 30 days, though cached or archived versions may persist briefly.',
       'You represent that you have the right to submit any content you provide, and that it does not infringe on any third party\'s intellectual property or privacy rights.',
     ],
@@ -70,7 +70,7 @@ const sections = [
     icon: Scale,
     title: '6. Content Moderation',
     paragraphs: [
-      'Banyo employs community moderation and automated systems to review user-submitted content. We reserve the right to remove, edit, or refuse any content that violates these Terms or our Community Guidelines.',
+      'Flush employs community moderation and automated systems to review user-submitted content. We reserve the right to remove, edit, or refuse any content that violates these Terms or our Community Guidelines.',
       'New restroom submissions go through a verification process before appearing on the map. This may involve community verification or staff review.',
       'If your content is removed or your account is actioned, you may appeal through the Help & Support section.',
     ],
@@ -79,16 +79,16 @@ const sections = [
     icon: AlertTriangle,
     title: '7. Disclaimers & Limitations',
     paragraphs: [
-      'RESTROOM INFORMATION: Banyo aggregates community-provided data. We do not independently verify every listing. Restroom availability, hours, cleanliness, and amenities may change without notice. Always verify critical accessibility features in person.',
-      'NAVIGATION: Directions provided through the App are for convenience only. Banyo is not responsible for inaccurate directions or routing. Always exercise caution when navigating.',
-      'LIABILITY: To the maximum extent permitted by law, Banyo and its team shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.',
+      'RESTROOM INFORMATION: Flush aggregates community-provided data. We do not independently verify every listing. Restroom availability, hours, cleanliness, and amenities may change without notice. Always verify critical accessibility features in person.',
+      'NAVIGATION: Directions provided through the App are for convenience only. Flush is not responsible for inaccurate directions or routing. Always exercise caution when navigating.',
+      'LIABILITY: To the maximum extent permitted by law, Flush and its team shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.',
     ],
   },
   {
     icon: Handshake,
     title: '8. Community Guidelines',
     paragraphs: [
-      'Banyo thrives on community trust. We expect all users to:',
+      'Flush thrives on community trust. We expect all users to:',
     ],
     list: [
       'Be honest and constructive in reviews',
@@ -135,7 +135,7 @@ export default function TermsScreen() {
             </div>
           </div>
           <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            Please read these terms carefully before using Banyo. They outline your rights, responsibilities, and the rules that govern your use of our restroom-finder platform.
+            Please read these terms carefully before using Flush. They outline your rights, responsibilities, and the rules that govern your use of our restroom-finder platform.
           </p>
         </div>
 
@@ -169,7 +169,7 @@ export default function TermsScreen() {
           <div className="p-4 rounded-xl bg-primary-50 dark:bg-primary-900/20 border border-primary-100 dark:border-primary-800">
             <p className="text-sm font-medium text-primary-700 dark:text-primary-300 mb-1">Questions about these Terms?</p>
             <p className="text-xs text-primary-600/70 dark:text-primary-400/70 leading-relaxed">
-              If you have questions about these Terms of Service, contact us through the Send Feedback option or email legal@banyo.app. We're happy to clarify anything.
+              If you have questions about these Terms of Service, contact us through the Send Feedback option or email legal@flush.app. We're happy to clarify anything.
             </p>
           </div>
         </div>

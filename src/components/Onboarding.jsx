@@ -127,7 +127,7 @@ export default function Onboarding() {
       name: isSignUp ? name.trim() : email.split('@')[0],
       email: email.trim().toLowerCase(),
     }
-    localStorage.setItem('banyo_user', JSON.stringify(userData))
+    localStorage.setItem('flush_user', JSON.stringify(userData))
     setUser(userData)
     setAuthLoading(false)
     completeOnboarding()

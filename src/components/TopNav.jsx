@@ -172,7 +172,7 @@ function SideMenu() {
           {user && (
             <button
               onClick={() => {
-                localStorage.removeItem('banyo_user')
+                localStorage.removeItem('flush_user')
                 setUser(null)
               }}
               className="flex items-center gap-3 w-full py-2.5 text-sm text-error"

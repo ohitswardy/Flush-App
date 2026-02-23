@@ -1,4 +1,4 @@
-# Banyo — Restroom Finder App
+# Flush — Restroom Finder App
 
 > A mobile-first, map-centered restroom-finder application built with React, Tailwind CSS v4, Leaflet, and Framer Motion.
 
@@ -25,7 +25,7 @@
 
 ## Overview
 
-**Banyo** (Filipino for "bathroom") is a community-driven restroom finder app designed for speed, clarity, and accessibility. It helps users locate clean, accessible restrooms nearby — with ratings, reviews, and filtering by amenities like wheelchair access, gender-neutral facilities, and baby-changing stations.
+**Flush** (Filipino for "bathroom") is a community-driven restroom finder app designed for speed, clarity, and accessibility. It helps users locate clean, accessible restrooms nearby — with ratings, reviews, and filtering by amenities like wheelchair access, gender-neutral facilities, and baby-changing stations.
 
 ### Key Principles
 - **Map-first experience** — the map is always the primary view
@@ -58,9 +58,9 @@ The dev server runs at `http://localhost:3000`.
 ## Project Structure
 
 ```
-Banyo/
+Flush/
 ├── public/
-│   └── banyo-icon.png          # App favicon/icon
+│   └── FlushIcon.png          # App favicon/icon
 ├── src/
 │   ├── components/
 │   │   ├── TopNav.jsx          # Top navigation bar + side menu
@@ -574,7 +574,7 @@ All icons use Lucide React. Key icons used:
 | `Moon` / `Sun` | SideMenu | Dark mode toggle |
 
 ### App Icon
-PNG icon at `public/banyo-icon.png` — app favicon and brand icon. Export at:
+PNG icon at `public/FlushIcon.png` — app favicon and brand icon. Export at:
 - 1x: 64x64
 - 2x: 128x128
 - 3x: 192x192
