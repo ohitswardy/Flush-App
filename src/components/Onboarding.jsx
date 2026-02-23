@@ -224,17 +224,12 @@ export default function Onboarding() {
             }
           >
             {isSignInSlide ? (
-              <>
-                <img
-                  src="/FlushIcon.png"
-                  alt="Flush icon"
-                  className="w-20 h-20 rounded-3xl object-contain"
-                  style={{
-                    boxShadow: '0 8px 32px rgba(13,148,136,0.25)',
-                  }}
-                  draggable={false}
-                />
-              </>
+              <img
+                src="/FlushIcon.png"
+                alt="Flush icon"
+                className="w-36 h-36 object-contain"
+                draggable={false}
+              />
             ) : (
               <img
                 src={slide.image}
