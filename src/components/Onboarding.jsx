@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useApp } from '../context/AppContext'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronRight, LogIn, Mail, User, Eye, EyeOff } from 'lucide-react'
+import { ChevronRight, Mail, User, Eye, EyeOff } from 'lucide-react'
 
 /* ── Slide data ──────────────────────────────────────── */
 const slides = [
@@ -225,15 +225,15 @@ export default function Onboarding() {
           >
             {isSignInSlide ? (
               <>
-                <div
-                  className="w-20 h-20 rounded-3xl flex items-center justify-center"
+                <img
+                  src="/FlushIcon.png"
+                  alt="Flush icon"
+                  className="w-20 h-20 rounded-3xl object-contain"
                   style={{
-                    background: 'linear-gradient(135deg, #0f766e 0%, #2dd4bf 100%)',
                     boxShadow: '0 8px 32px rgba(13,148,136,0.25)',
                   }}
-                >
-                  <LogIn size={34} color="#fff" strokeWidth={2} />
-                </div>
+                  draggable={false}
+                />
               </>
             ) : (
               <img
