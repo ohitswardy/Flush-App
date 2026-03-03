@@ -121,13 +121,13 @@ body {
   color: var(--color-neutral-100);
 }
 
-/* Dark mode shadow overrides */
+/* Dark mode shadow overrides — brutalist white shadows */
 .dark {
-  --shadow-sm: 2px 2px 0 rgba(255, 255, 255, 0.12);
-  --shadow-md: 3px 3px 0 rgba(255, 255, 255, 0.12);
-  --shadow-lg: 4px 4px 0 rgba(255, 255, 255, 0.12);
-  --shadow-xl: 6px 6px 0 rgba(255, 255, 255, 0.12);
-  --shadow-sheet: 0 -3px 0 rgba(255, 255, 255, 0.12);
+  --shadow-sm: 2px 2px 0 rgba(255, 255, 255, 0.25);
+  --shadow-md: 3px 3px 0 rgba(255, 255, 255, 0.3);
+  --shadow-lg: 4px 4px 0 rgba(255, 255, 255, 0.35);
+  --shadow-xl: 6px 6px 0 rgba(255, 255, 255, 0.4);
+  --shadow-sheet: 0 -3px 0 rgba(255, 255, 255, 0.3);
 }
 
 /* Leaflet overrides */

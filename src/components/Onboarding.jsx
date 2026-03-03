@@ -148,12 +148,11 @@ export default function Onboarding() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className="fixed inset-0 z-[100] flex flex-col overflow-hidden"
-      style={{ background: '#FFFDF0' }}
+      className="fixed inset-0 z[100] flex flex-col overflow-hidden bg-[#FFFDF0] dark:bg-neutral-950"
     >
       {/* ═══ Top: illustration area ═══ */}
       <div
-        className="relative flex flex-col items-center justify-center border-b-4 border-black"
+        className="relative flex flex-col items-center justify-center border-b-4 border-black dark:border-white"
         style={{ flex: '1.2' }}
       >
         {/* Skip — top-right, orange text */}
@@ -191,7 +190,7 @@ export default function Onboarding() {
               <img
                 src="/FlushIcon.png"
                 alt="Flush icon"
-                className="w-36 h-36 object-contain border-2 border-black shadow-md bg-white p-3"
+                className="w-36 h-36 object-contain border-2 border-black dark:border-white shadow-md bg-white dark:bg-neutral-900 p-3"
                 draggable={false}
               />
             ) : (
@@ -200,7 +199,7 @@ export default function Onboarding() {
                 alt=""
                 className={current === 2
                   ? 'w-full h-full object-cover'
-                  : 'w-full h-full object-contain border-2 border-black shadow-md'
+                  : 'w-full h-full object-contain border-2 border-black dark:border-white shadow-md'
                 }
                 draggable={false}
               />
@@ -254,7 +253,7 @@ export default function Onboarding() {
 
             {/* Description */}
             <motion.p
-              className="whitespace-pre-line text-neutral-500"
+              className="whitespace-pre-line text-neutral-600 dark:text-neutral-400"
               style={{
                 fontFamily: "'Space Mono', monospace",
                 fontWeight: 400,
@@ -272,34 +271,34 @@ export default function Onboarding() {
             {isSignInSlide && signInMode === 'form' && (
               <div className="flex flex-col gap-3 mt-3">
                 {isSignUp && (
-                  <div className="flex items-center gap-3 px-4 py-3 bg-white border-2 border-black dark:border-white/20 shadow-md">
-                    <User size={18} className="text-neutral-600 flex-shrink-0" />
+                  <div className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-neutral-900 border-2 border-black dark:border-white shadow-md">
+                    <User size={18} className="text-neutral-600 dark:text-neutral-400 flex-shrink-0" />
                     <input
                       type="text"
                       placeholder="Full name"
                       value={name}
                       onChange={e => { setName(e.target.value); setAuthError('') }}
-                      className="flex-1 bg-transparent text-sm font-semibold text-neutral-900 placeholder-neutral-400 outline-none"
+                      className="flex-1 bg-transparent text-sm font-semibold text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 outline-none"
                       style={{ fontFamily: "'Space Mono', monospace" }}
                     />
                   </div>
                 )}
-                <div className="flex items-center gap-3 px-4 py-3 bg-white border-2 border-black dark:border-white/20 shadow-md">
-                  <Mail size={18} className="text-neutral-600 flex-shrink-0" />
+                <div className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-neutral-900 border-2 border-black dark:border-white shadow-md">
+                  <Mail size={18} class Name="text-neutral-600 dark:text-neutral-400 flex-shrink-0" />
                   <input
                     type="email"
                     placeholder="Email address"
                     value={email}
                     onChange={e => { setEmail(e.target.value); setAuthError('') }}
-                    className="flex-1 bg-transparent text-sm font-semibold text-neutral-900 placeholder-neutral-400 outline-none"
+                    className="flex-1 bg-transparent text-sm font-semibold text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 outline-none"
                     style={{ fontFamily: "'Space Mono', monospace" }}
                   />
                 </div>
-                <div className="flex items-center gap-3 px-4 py-3 bg-white border-2 border-black dark:border-white/20 shadow-md">
+                <div className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-neutral-900 border-2 border-black dark:border-white shadow-md">
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="text-neutral-600 flex-shrink-0"
+                    className="text-neutral-600 dark:text-neutral-400 flex-shrink-0"
                   >
                     {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
@@ -308,12 +307,12 @@ export default function Onboarding() {
                     placeholder="Password"
                     value={password}
                     onChange={e => { setPassword(e.target.value); setAuthError('') }}
-                    className="flex-1 bg-transparent text-sm font-semibold text-neutral-900 placeholder-neutral-400 outline-none"
+                    className="flex-1 bg-transparent text-sm font-semibold text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 outline-none"
                     style={{ fontFamily: "'Space Mono', monospace" }}
                   />
                 </div>
                 {authError && (
-                  <p className="text-xs font-bold" style={{ color: '#e11d48', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{authError}</p>
+                  <p className="text-xs font-bold text-rose-600 dark:text-rose-400" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>{authError}</p>
                 )}
               </div>
             )}
@@ -330,7 +329,7 @@ export default function Onboarding() {
                   onClick={() => { setSignInMode('form'); setIsSignUp(false) }}
                   whileHover={{ x: 2, y: 2 }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full py-3.5 font-black text-sm text-white flex items-center justify-center gap-2 uppercase tracking-[0.08em] bg-primary-600 border-2 border-black dark:border-white/20 shadow-md"
+                  className="w-full py-3.5 font-black text-sm text-white flex items-center justify-center gap-2 uppercase tracking-[0.08em] bg-primary-600 border-2 border-black dark:border-white shadow-md"
                 >
                   <Mail size={18} />
                   Sign in with Email
@@ -341,7 +340,7 @@ export default function Onboarding() {
                   onClick={() => { setSignInMode('form'); setIsSignUp(true) }}
                   whileHover={{ x: 2, y: 2 }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full py-3.5 font-black text-sm flex items-center justify-center gap-2 uppercase tracking-[0.08em] border-2 border-black dark:border-white/20 text-primary-600 dark:text-primary-400 shadow-md"
+                  className="w-full py-3.5 font-black text-sm flex items-center justify-center gap-2 uppercase tracking-[0.08em] bg-[#FFFDF0] dark:bg-neutral-900 border-2 border-black dark:border-white text-primary-600 dark:text-primary-400 shadow-md"
                 >
                   <User size={18} />
                   Create Account
@@ -363,7 +362,7 @@ export default function Onboarding() {
                   disabled={authLoading}
                   whileHover={{ x: 2, y: 2 }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full py-3.5 font-black text-sm text-white flex items-center justify-center gap-2 disabled:opacity-60 uppercase tracking-[0.08em] bg-primary-600 border-2 border-black dark:border-white/20 shadow-md"
+                  className="w-full py-3.5 font-black text-sm text-white flex items-center justify-center gap-2 disabled:opacity-60 uppercase tracking-[0.08em] bg-primary-600 border-2 border-black dark:border-white shadow-md"
                 >
                   {authLoading ? (
                     <motion.div
@@ -387,7 +386,7 @@ export default function Onboarding() {
                 {/* Back to choices */}
                 <button
                   onClick={() => { setSignInMode('choice'); setAuthError('') }}
-                  className="text-sm font-bold text-center uppercase tracking-[0.08em] text-neutral-900 dark:text-white border-2 border-black dark:border-white/20 px-4 py-2 shadow-md"
+                  className="text-sm font-bold text-center uppercase tracking-[0.08em] text-neutral-900 dark:text-white border-2 border-black dark:border-white px-4 py-2 shadow-md"
                 >
                   ← Back
                 </button>
@@ -407,11 +406,11 @@ export default function Onboarding() {
                 className="p-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300"
               >
                 <motion.div
-                  className="border-2 border-black"
+                  className="border-2 border-black dark:border-white"
                   animate={{
                     width: i === current ? 28 : 12,
                     height: 12,
-                    backgroundColor: i === current ? '#0d9488' : '#FFFDF0',
+                    backgroundColor: i === current ? '#0d9488' : 'transparent',
                   }}
                   transition={{ type: 'spring', stiffness: 400, damping: 28 }}
                 />
@@ -426,7 +425,7 @@ export default function Onboarding() {
               whileHover={{ x: 2, y: 2 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-              className="px-6 py-3 font-black text-sm uppercase tracking-[0.12em] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 border-2 border-black dark:border-white/20 text-primary-600 dark:text-primary-400 shadow-md"
+              className="px-6 py-3 font-black text-sm uppercase tracking-[0.12em] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 border-2 border-black dark:border-white text-primary-600 dark:text-primary-400 bg-[#FFFDF0] dark:bg-neutral-900 shadow-md"
             >
               Enable Location
             </motion.button>
@@ -436,7 +435,7 @@ export default function Onboarding() {
               whileHover={{ x: 2, y: 2 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-              className="flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 w-14 h-14 bg-primary-600 border-2 border-black dark:border-white/20 shadow-md"
+              className="flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 w-14 h-14 bg-primary-600 border-2 border-black dark:border-white shadow-md"
             >
               <ChevronRight size={22} strokeWidth={3} color="#fff" />
             </motion.button>
