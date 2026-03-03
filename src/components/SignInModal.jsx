@@ -49,7 +49,7 @@ export default function SignInModal({ open, onClose }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[80] bg-black/40 backdrop-blur-sm"
+            className="fixed inset-0 z-[80] bg-black/60"
             onClick={() => { reset(); onClose() }}
           />
 
@@ -59,13 +59,13 @@ export default function SignInModal({ open, onClose }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.97 }}
             transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-            className="fixed inset-x-4 top-[15%] z-[85] bg-white dark:bg-neutral-900 rounded-3xl shadow-xl overflow-hidden max-w-[400px] mx-auto"
+            className="fixed inset-x-4 top-[15%] z-[85] bg-white dark:bg-neutral-900 rounded-3xl shadow-lg border-2 border-black dark:border-white/20 overflow-hidden max-w-[400px] mx-auto"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-6 pt-6 pb-2">
               <h2
                 className="text-xl font-bold text-neutral-900 dark:text-white"
-                style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '-0.02em' }}
+                style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-0.03em' }}
               >
                 {isSignUp ? 'Create Account' : 'Sign In'}
               </h2>
@@ -78,7 +78,7 @@ export default function SignInModal({ open, onClose }) {
             </div>
 
             <p className="px-6 text-sm text-neutral-500 dark:text-neutral-400 mb-5"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: "'Space Mono', monospace" }}
             >
               {isSignUp
                 ? 'Create an account to sync your data across devices.'
@@ -88,7 +88,7 @@ export default function SignInModal({ open, onClose }) {
             {/* Form */}
             <div className="px-6 flex flex-col gap-3">
               {isSignUp && (
-                <div className="flex items-center gap-3 bg-neutral-50 dark:bg-neutral-800 rounded-xl px-4 py-3 border border-neutral-200 dark:border-neutral-700">
+                <div className="flex items-center gap-3 bg-neutral-50 dark:bg-neutral-800 rounded-xl px-4 py-3 border-2 border-black dark:border-white/20">
                   <User size={18} className="text-neutral-400 flex-shrink-0" />
                   <input
                     type="text"
@@ -96,11 +96,11 @@ export default function SignInModal({ open, onClose }) {
                     value={name}
                     onChange={e => { setName(e.target.value); setError('') }}
                     className="flex-1 bg-transparent text-sm text-neutral-900 dark:text-white placeholder-neutral-400 outline-none"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
+                    style={{ fontFamily: "'Space Mono', monospace" }}
                   />
                 </div>
               )}
-              <div className="flex items-center gap-3 bg-neutral-50 dark:bg-neutral-800 rounded-xl px-4 py-3 border border-neutral-200 dark:border-neutral-700">
+              <div className="flex items-center gap-3 bg-neutral-50 dark:bg-neutral-800 rounded-xl px-4 py-3 border-2 border-black dark:border-white/20">
                 <Mail size={18} className="text-neutral-400 flex-shrink-0" />
                 <input
                   type="email"
@@ -108,10 +108,10 @@ export default function SignInModal({ open, onClose }) {
                   value={email}
                   onChange={e => { setEmail(e.target.value); setError('') }}
                   className="flex-1 bg-transparent text-sm text-neutral-900 dark:text-white placeholder-neutral-400 outline-none"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: "'Space Mono', monospace" }}
                 />
               </div>
-              <div className="flex items-center gap-3 bg-neutral-50 dark:bg-neutral-800 rounded-xl px-4 py-3 border border-neutral-200 dark:border-neutral-700">
+              <div className="flex items-center gap-3 bg-neutral-50 dark:bg-neutral-800 rounded-xl px-4 py-3 border-2 border-black dark:border-white/20">
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
@@ -125,7 +125,7 @@ export default function SignInModal({ open, onClose }) {
                   value={password}
                   onChange={e => { setPassword(e.target.value); setError('') }}
                   className="flex-1 bg-transparent text-sm text-neutral-900 dark:text-white placeholder-neutral-400 outline-none"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: "'Space Mono', monospace" }}
                 />
               </div>
 
@@ -140,11 +140,7 @@ export default function SignInModal({ open, onClose }) {
                 onClick={handleSubmit}
                 disabled={loading}
                 whileTap={{ scale: 0.97 }}
-                className="w-full py-3.5 rounded-2xl font-semibold text-sm text-white flex items-center justify-center gap-2 disabled:opacity-60"
-                style={{
-                  background: 'linear-gradient(135deg, #0f766e 0%, #2dd4bf 100%)',
-                  boxShadow: '0 4px 16px rgba(13, 148, 136, 0.3)',
-                }}
+                className="w-full py-3.5 rounded-2xl font-semibold text-sm text-white flex items-center justify-center gap-2 disabled:opacity-60 bg-primary-600 border-2 border-black dark:border-white/20 shadow-md"
               >
                 {loading ? (
                   <motion.div
@@ -159,8 +155,7 @@ export default function SignInModal({ open, onClose }) {
 
               <button
                 onClick={() => { setIsSignUp(!isSignUp); setError('') }}
-                className="text-sm font-medium text-center"
-                style={{ color: '#0d9488' }}
+                className="text-sm font-medium text-center text-primary-600 dark:text-primary-400"
               >
                 {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
               </button>

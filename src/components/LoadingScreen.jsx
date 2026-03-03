@@ -93,7 +93,7 @@ export default function LoadingScreen() {
       exit={{ opacity: 0, scale: 1.02 }}
       transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
       className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-white"
-      style={{ fontFamily: "'Inter', system-ui, -apple-system, sans-serif" }}
+      style={{ fontFamily: "'Space Grotesk', system-ui, -apple-system, sans-serif" }}
     >
       {/* Icon + pulse rings */}
       <div className="relative flex items-center justify-center mb-10">
@@ -102,7 +102,7 @@ export default function LoadingScreen() {
           variants={pulseRingVariants}
           initial="initial"
           animate="animate"
-          className="absolute w-36 h-36 rounded-full border border-primary-300/40"
+          className="absolute w-36 h-36 rounded-full border-2 border-black/30"
         />
         {/* Pulse ring 2 - offset */}
         <motion.div
@@ -110,7 +110,7 @@ export default function LoadingScreen() {
           initial="initial"
           animate="animate"
           transition={{ delay: 1.4 }}
-          className="absolute w-36 h-36 rounded-full border border-primary-200/30"
+          className="absolute w-36 h-36 rounded-full border-2 border-black/30"
           style={{ animationDelay: '0.6s' }}
         />
 
@@ -125,7 +125,7 @@ export default function LoadingScreen() {
           <img
             src="/FlushIcon.png"
             alt="Flush"
-            className="w-32 h-32 sm:w-40 sm:h-40 object-contain drop-shadow-lg"
+            className="w-32 h-32 sm:w-40 sm:h-40 object-contain"
           />
         </motion.div>
       </div>
@@ -165,15 +165,12 @@ export default function LoadingScreen() {
       </motion.p>
 
       {/* Progress bar */}
-      <div className="mt-12 w-32 h-[2px] bg-neutral-200 rounded-full overflow-hidden">
+      <div className="mt-12 w-32 h-[2px] bg-neutral-200 rounded-full overflow-hidden border-2 border-black dark:border-white/20">
         <motion.div
           variants={progressVariants}
           initial="hidden"
           animate="visible"
-          className="h-full rounded-full origin-left"
-          style={{
-            background: 'linear-gradient(90deg, #0d9488, #2dd4bf)',
-          }}
+          className="h-full rounded-full origin-left bg-primary-600"
         />
       </div>
 

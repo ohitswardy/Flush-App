@@ -46,10 +46,12 @@
   /* Surface tokens */
   --color-surface: #ffffff;
   --color-surface-elevated: #ffffff;
-  --color-surface-overlay: rgba(0, 0, 0, 0.5);
+  --color-surface-overlay: rgba(0, 0, 0, 0.6);
 
-  /* Font families */
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Font families — neo-brutalist */
+  --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
 
   /* Spacing scale */
   --spacing-xs: 4px;
@@ -60,26 +62,29 @@
   --spacing-2xl: 48px;
   --spacing-3xl: 64px;
 
-  /* Border radius */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-full: 9999px;
+  /* Border radius — ZERO for neo-brutalist hard edges */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-full: 0px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
-  --shadow-sheet: 0 -4px 24px rgba(0, 0, 0, 0.12);
+  /* Shadows — hard offset, ZERO blur */
+  --shadow-sm: 2px 2px 0 #000;
+  --shadow-md: 3px 3px 0 #000;
+  --shadow-lg: 4px 4px 0 #000;
+  --shadow-xl: 6px 6px 0 #000;
+  --shadow-sheet: 0 -3px 0 #000;
 
   /* Animations */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 350ms;
+  --duration-fast: 100ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
 }
 
 /* Base styles */
@@ -116,6 +121,15 @@ body {
   color: var(--color-neutral-100);
 }
 
+/* Dark mode shadow overrides */
+.dark {
+  --shadow-sm: 2px 2px 0 rgba(255, 255, 255, 0.12);
+  --shadow-md: 3px 3px 0 rgba(255, 255, 255, 0.12);
+  --shadow-lg: 4px 4px 0 rgba(255, 255, 255, 0.12);
+  --shadow-xl: 6px 6px 0 rgba(255, 255, 255, 0.12);
+  --shadow-sheet: 0 -3px 0 rgba(255, 255, 255, 0.12);
+}
+
 /* Leaflet overrides */
 .leaflet-container {
   width: 100%;
@@ -130,32 +144,31 @@ body {
 
 .leaflet-control-attribution {
   font-size: 10px !important;
-  background: rgba(255, 255, 255, 0.7) !important;
-  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-top: 2px solid #000 !important;
 }
 
 .dark .leaflet-control-attribution {
-  background: rgba(23, 23, 23, 0.7) !important;
+  background: rgba(23, 23, 23, 0.9) !important;
   color: var(--color-neutral-400) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 .dark .leaflet-control-attribution a {
   color: var(--color-neutral-400) !important;
 }
 
-/* Custom marker styles */
+/* Custom marker styles — angular neo-brutalist */
 .custom-marker {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
   background: var(--color-primary-600);
-  border: 3px solid white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s var(--ease-out-expo);
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .custom-marker.accessible {
@@ -171,7 +184,6 @@ body {
 }
 
 .custom-marker-inner {
-  transform: rotate(45deg);
   color: white;
   font-size: 16px;
   display: flex;
@@ -180,7 +192,8 @@ body {
 }
 
 .custom-marker:hover {
-  transform: rotate(-45deg) scale(1.15);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #000;
 }
 
 /* Cluster styles */
@@ -190,31 +203,29 @@ body {
   justify-content: center;
   width: 44px !important;
   height: 44px !important;
-  border-radius: 50%;
   background: var(--color-primary-500);
-  border: 3px solid white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #000;
   color: white;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 14px;
 }
 
-/* Bottom sheet drag handle */
+/* Bottom sheet drag handle — rectangular bar */
 .sheet-handle {
-  width: 36px;
+  width: 40px;
   height: 4px;
-  border-radius: 2px;
-  background: var(--color-neutral-300);
+  background: var(--color-neutral-900);
   margin: 8px auto 4px;
 }
 
 .dark .sheet-handle {
-  background: var(--color-neutral-600);
+  background: var(--color-neutral-300);
 }
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -222,12 +233,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-neutral-300);
-  border-radius: 2px;
+  background: var(--color-neutral-900);
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: var(--color-neutral-700);
+  background: var(--color-neutral-400);
 }
 
 /* Touch target enforcement */
@@ -242,15 +252,15 @@ body {
 /* Animation keyframes */
 @keyframes marker-drop {
   0% {
-    transform: rotate(-45deg) translateY(-30px) scale(0.8);
+    transform: translateY(-30px) scale(0.8);
     opacity: 0;
   }
   60% {
-    transform: rotate(-45deg) translateY(4px) scale(1.05);
+    transform: translateY(4px) scale(1.05);
     opacity: 1;
   }
   100% {
-    transform: rotate(-45deg) translateY(0) scale(1);
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
 }
@@ -277,15 +287,15 @@ body {
 }
 
 .animate-marker-drop {
-  animation: marker-drop 0.4s var(--ease-out-expo) forwards;
+  animation: marker-drop 0.35s var(--ease-out-expo) forwards;
 }
 
 .animate-fade-in {
-  animation: fade-in 0.25s ease-out forwards;
+  animation: fade-in 0.2s ease-out forwards;
 }
 
 .animate-slide-up {
-  animation: slide-up 0.35s var(--ease-out-expo) forwards;
+  animation: slide-up 0.3s var(--ease-out-expo) forwards;
 }
 
 .animate-pulse-ring {
