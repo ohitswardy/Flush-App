@@ -30,7 +30,7 @@ export default function TopNav() {
           {/* Logo */}
           <button
             onClick={() => setScreen('home')}
-            className="touch-target flex items-center gap-2 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-lg px-4 py-2 shadow-md transition-all duration-200 hover:shadow-lg active:scale-95"
+            className="touch-target flex items-center gap-2 bg-white dark:bg-neutral-900 px-4 py-2 shadow-md border-2 border-black dark:border-white/20 active:scale-95"
             aria-label="Go to home"
           >
             <img src="/FlushIcon.png" alt="Flush" className="w-7 h-7 rounded-lg object-contain" />
@@ -42,7 +42,7 @@ export default function TopNav() {
           {/* Hamburger */}
           <button
             onClick={toggleMenu}
-            className="touch-target rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-lg p-2.5 shadow-md transition-all duration-200 hover:shadow-lg active:scale-95"
+            className="touch-target bg-white dark:bg-neutral-900 p-2.5 shadow-md border-2 border-black dark:border-white/20 active:scale-95"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >
@@ -87,7 +87,7 @@ function SideMenu() {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm"
+        className="fixed inset-0 z-[60] bg-black/60"
         onClick={closeMenu}
         aria-hidden="true"
       />
@@ -98,7 +98,7 @@ function SideMenu() {
         animate={{ x: 0 }}
         exit={{ x: '100%' }}
         transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-        className="fixed top-0 right-0 bottom-0 z-[70] w-[300px] max-w-[85vw] bg-white dark:bg-neutral-900 shadow-xl flex flex-col"
+        className="fixed top-0 right-0 bottom-0 z-[70] w-[300px] max-w-[85vw] bg-white dark:bg-neutral-900 border-l-[3px] border-black dark:border-white/20 flex flex-col"
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
@@ -112,10 +112,10 @@ function SideMenu() {
         </div>
 
         {/* User section */}
-        <div className="px-5 py-3 border-b border-neutral-100 dark:border-neutral-800">
+        <div className="px-5 py-3 border-b-2 border-neutral-200 dark:border-neutral-700">
           {user ? (
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center">
+              <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900 flex items-center justify-center border-2 border-black dark:border-white/20">
                 <User size={18} className="text-primary-600 dark:text-primary-400" />
               </div>
               <div>
@@ -141,7 +141,7 @@ function SideMenu() {
         <nav className="flex-1 overflow-y-auto py-2">
           {menuItems.map((item, i) =>
             item.divider ? (
-              <div key={i} className="my-2 mx-5 border-t border-neutral-100 dark:border-neutral-800" />
+              <div key={i} className="my-2 mx-5 border-t-2 border-neutral-200 dark:border-neutral-700" />
             ) : (
               <button
                 key={i}
@@ -157,15 +157,15 @@ function SideMenu() {
         </nav>
 
         {/* Dark mode toggle + sign out */}
-        <div className="border-t border-neutral-100 dark:border-neutral-800 px-5 py-3 safe-bottom">
+        <div className="border-t-2 border-neutral-200 dark:border-neutral-700 px-5 py-3 safe-bottom">
           <button
             onClick={toggleDarkMode}
             className="flex items-center gap-3 w-full py-2.5 text-sm text-neutral-700 dark:text-neutral-300"
           >
             {darkMode ? <Sun size={18} className="text-accent-500" /> : <Moon size={18} className="text-neutral-500" />}
             <span className="flex-1">{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
-            <div className={`w-10 h-6 rounded-full transition-colors duration-200 flex items-center px-0.5 ${darkMode ? 'bg-primary-600' : 'bg-neutral-300'}`}>
-              <div className={`w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${darkMode ? 'translate-x-4' : 'translate-x-0'}`} />
+            <div className={`w-10 h-6 rounded-full transition-colors duration-200 flex items-center px-0.5 border-2 border-black dark:border-white/70 ${darkMode ? 'bg-primary-600' : 'bg-neutral-300'}`}>
+              <div className={`w-5 h-5 rounded-full bg-white border border-black dark:border-white/50 transition-transform duration-200 ${darkMode ? 'translate-x-4' : 'translate-x-0'}`} />
             </div>
           </button>
 

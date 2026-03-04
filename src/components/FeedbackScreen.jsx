@@ -50,7 +50,7 @@ export default function FeedbackScreen() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', damping: 15, delay: 0.1 }}
-          className="w-20 h-20 rounded-full bg-success/10 flex items-center justify-center mb-6"
+          className="w-20 h-20 rounded-full bg-success/10 border-2 border-black dark:border-white/20 flex items-center justify-center mb-6"
         >
           <CheckCircle2 size={40} className="text-success" />
         </motion.div>
@@ -60,7 +60,7 @@ export default function FeedbackScreen() {
         </p>
         <button
           onClick={() => setScreen('home')}
-          className="w-full max-w-[320px] py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm active:scale-[0.98] transition-transform"
+          className="w-full max-w-[320px] py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm border-2 border-black dark:border-white/20 shadow-md active:scale-[0.98] transition-transform"
         >
           Back to Map
         </button>
@@ -76,7 +76,7 @@ export default function FeedbackScreen() {
       className="fixed inset-0 z-[90] bg-white dark:bg-neutral-950 flex flex-col"
     >
       {/* Header */}
-      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b border-neutral-100 dark:border-neutral-800">
+      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b-2 border-neutral-200 dark:border-neutral-700">
         <button
           onClick={() => setScreen('home')}
           className="touch-target p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
@@ -90,7 +90,7 @@ export default function FeedbackScreen() {
       <div className="flex-1 overflow-y-auto px-5 py-5">
         {/* Intro */}
         <div className="flex items-center gap-3 mb-5">
-          <div className="w-11 h-11 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
+          <div className="w-11 h-11 rounded-xl bg-primary-100 dark:bg-primary-900/30 border-2 border-black dark:border-white/20 flex items-center justify-center">
             <MessageSquare size={22} className="text-primary-600 dark:text-primary-400" />
           </div>
           <div>
@@ -111,8 +111,8 @@ export default function FeedbackScreen() {
                 onClick={() => setSelectedType(type.value)}
                 className={`flex items-center gap-2.5 p-3 rounded-xl text-sm font-medium transition-all ${
                   selectedType === type.value
-                    ? 'ring-2 ring-primary-500 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300'
-                    : `${type.color} active:scale-[0.98]`
+                    ? 'border-2 border-primary-600 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300'
+                    : `${type.color} border-2 border-black dark:border-white/20 active:scale-[0.98]`
                 }`}
               >
                 <type.icon size={18} />
@@ -170,14 +170,14 @@ export default function FeedbackScreen() {
                 : 'Share your thoughts with us...'
             }
             rows={5}
-            className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-primary-500/30 resize-none transition-shadow"
+            className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border-2 border-black dark:border-white/20 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-primary-500/30 resize-none"
           />
           <p className="text-[11px] text-neutral-400 mt-1 text-right">{message.length}/500</p>
         </div>
 
         {/* Screenshot */}
         <div className="mb-5">
-          <button className="flex items-center gap-2 px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors w-full">
+          <button className="flex items-center gap-2 px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border-2 border-black dark:border-white/20 text-sm text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors w-full">
             <Camera size={18} />
             Attach a screenshot (optional)
           </button>
@@ -193,17 +193,17 @@ export default function FeedbackScreen() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com — so we can follow up"
-            className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-primary-500/30 transition-shadow"
+            className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border-2 border-black dark:border-white/20 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-primary-500/30"
           />
         </div>
       </div>
 
       {/* Submit */}
-      <div className="px-5 pb-6 pt-3 safe-bottom border-t border-neutral-100 dark:border-neutral-800">
+      <div className="px-5 pb-6 pt-3 safe-bottom border-t-2 border-neutral-200 dark:border-neutral-700">
         <button
           onClick={handleSubmit}
           disabled={!selectedType || !message.trim() || submitting}
-          className="w-full py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+          className="w-full py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm border-2 border-black dark:border-white/20 shadow-md disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.98] transition-all flex items-center justify-center gap-2"
         >
           {submitting ? (
             <>

@@ -1,9 +1,18 @@
-import { createContext, useContext, useReducer, useCallback } from 'react'
+import { createContext, useContext, useReducer, useCallback, useEffect } from 'react'
 
 const AppContext = createContext(null)
 
+// Initialize dark mode from localStorage or system preference
+const getInitialDarkMode = () => {
+  const stored = localStorage.getItem('flush_dark')
+  if (stored !== null) {
+    return stored === 'true'
+  }
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches || false
+}
+
 const initialState = {
-  darkMode: window.matchMedia?.('(prefers-color-scheme: dark)').matches || false,
+  darkMode: getInitialDarkMode(),
   onboardingComplete: localStorage.getItem('flush_onboarded') === 'true',
   locationPermission: null, // 'granted' | 'denied' | 'prompt' | null
   userLocation: null,
@@ -34,7 +43,6 @@ function reducer(state, action) {
   switch (action.type) {
     case 'TOGGLE_DARK_MODE': {
       const next = !state.darkMode
-      document.documentElement.classList.toggle('dark', next)
       localStorage.setItem('flush_dark', next)
       return { ...state, darkMode: next }
     }
@@ -92,10 +100,14 @@ function reducer(state, action) {
 export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  // Initialize dark mode on mount
-  if (state.darkMode) {
-    document.documentElement.classList.add('dark')
-  }
+  // Apply dark mode class to document on mount and whenever it changes
+  useEffect(() => {
+    if (state.darkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, [state.darkMode])
 
   const actions = {
     toggleDarkMode: useCallback(() => dispatch({ type: 'TOGGLE_DARK_MODE' }), []),

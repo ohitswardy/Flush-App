@@ -171,7 +171,7 @@ export default function PrivacyScreen() {
       className="fixed inset-0 z-[90] bg-white dark:bg-neutral-950 flex flex-col"
     >
       {/* Header */}
-      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b border-neutral-100 dark:border-neutral-800">
+      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b-2 border-neutral-200 dark:border-neutral-700">
         <button
           onClick={() => setScreen('home')}
           className="touch-target p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
@@ -186,7 +186,7 @@ export default function PrivacyScreen() {
         {/* Hero */}
         <div className="px-5 pt-6 pb-4">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-11 h-11 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
+            <div className="w-11 h-11 rounded-xl bg-primary-100 dark:bg-primary-900/30 border-2 border-black dark:border-white/20 flex items-center justify-center">
               <Shield size={22} className="text-primary-600 dark:text-primary-400" />
             </div>
             <div>
@@ -204,7 +204,7 @@ export default function PrivacyScreen() {
           {sections.map((section) => (
             <div
               key={section.id}
-              className="rounded-xl bg-neutral-50 dark:bg-neutral-800/50 overflow-hidden transition-all"
+              className="rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 overflow-hidden transition-all"
             >
               <button
                 onClick={() => toggleSection(section.id)}
@@ -248,7 +248,7 @@ export default function PrivacyScreen() {
           ))}
 
           {/* Contact */}
-          <div className="mt-4 p-4 rounded-xl bg-primary-50 dark:bg-primary-900/20 border border-primary-100 dark:border-primary-800">
+          <div className="mt-4 p-4 rounded-xl bg-primary-50 dark:bg-primary-900/20 border-2 border-black dark:border-white/20">
             <p className="text-sm font-medium text-primary-700 dark:text-primary-300 mb-1">Questions about your privacy?</p>
             <p className="text-xs text-primary-600/70 dark:text-primary-400/70 leading-relaxed">
               If you have questions, concerns, or requests regarding your data, please reach out through the Send Feedback option in the menu or email privacy@flush.app.

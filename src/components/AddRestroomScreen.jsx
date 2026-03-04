@@ -67,7 +67,7 @@ export default function AddRestroomScreen() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', damping: 15, delay: 0.1 }}
-          className="w-20 h-20 rounded-full bg-success/10 flex items-center justify-center mb-6"
+          className="w-20 h-20 rounded-full bg-success/10 border-2 border-black dark:border-white/20 flex items-center justify-center mb-6"
         >
           <CheckCircle2 size={40} className="text-success" />
         </motion.div>
@@ -77,7 +77,7 @@ export default function AddRestroomScreen() {
         </p>
         <button
           onClick={() => setScreen('home')}
-          className="w-full max-w-[320px] py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm active:scale-[0.98] transition-transform"
+          className="w-full max-w-[320px] py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm border-2 border-black dark:border-white/20 shadow-md active:scale-[0.98] transition-transform"
         >
           Back to Map
         </button>
@@ -93,7 +93,7 @@ export default function AddRestroomScreen() {
       className="fixed inset-0 z-[90] bg-white dark:bg-neutral-950 flex flex-col"
     >
       {/* Header */}
-      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b border-neutral-100 dark:border-neutral-800">
+      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b-2 border-neutral-200 dark:border-neutral-700">
         <button
           onClick={() => step > 1 ? setStep(step - 1) : setScreen('home')}
           className="touch-target p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
@@ -112,7 +112,7 @@ export default function AddRestroomScreen() {
         {[1, 2, 3].map(s => (
           <div
             key={s}
-            className={`flex-1 h-1 rounded-full transition-colors ${s <= step ? 'bg-primary-500' : 'bg-neutral-200 dark:bg-neutral-700'}`}
+            className={`flex-1 h-1 rounded-full transition-colors ${s <= step ? 'bg-primary-500 border border-black' : 'bg-neutral-200 dark:bg-neutral-700 border border-neutral-400 dark:border-neutral-500'}`}
           />
         ))}
       </div>
@@ -130,7 +130,7 @@ export default function AddRestroomScreen() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g., SM City Cebu - 2F Restroom"
-                className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-primary-500/30"
+                className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none border-2 border-black dark:border-white/20 focus:ring-2 focus:ring-primary-500/30"
               />
             </div>
 
@@ -143,7 +143,7 @@ export default function AddRestroomScreen() {
                 value={formData.address}
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                 placeholder="Street address or landmark"
-                className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-primary-500/30"
+                className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none border-2 border-black dark:border-white/20 focus:ring-2 focus:ring-primary-500/30"
               />
               <button className="flex items-center gap-1 mt-2 text-xs text-primary-600 dark:text-primary-400">
                 <MapPin size={12} />
@@ -162,8 +162,8 @@ export default function AddRestroomScreen() {
                     onClick={() => setFormData({ ...formData, type: t.value })}
                     className={`px-3 py-2.5 rounded-xl text-sm text-left transition-all ${
                       formData.type === t.value
-                        ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 ring-1 ring-primary-200 dark:ring-primary-800'
-                        : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700'
+                        ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 border-2 border-primary-600 dark:border-primary-400'
+                        : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 border-2 border-neutral-300 dark:border-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-700'
                     }`}
                   >
                     {t.label}
@@ -225,7 +225,7 @@ export default function AddRestroomScreen() {
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                 placeholder="Any helpful info (floor number, near which store, etc.)"
                 rows={3}
-                className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-primary-500/30 resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none border-2 border-black dark:border-white/20 focus:ring-2 focus:ring-primary-500/30 resize-none"
               />
             </div>
           </div>
@@ -236,11 +236,11 @@ export default function AddRestroomScreen() {
             <div>
               <h3 className="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-3">Add Photos</h3>
               <div className="grid grid-cols-3 gap-2">
-                <button className="aspect-square rounded-xl border-2 border-dashed border-neutral-300 dark:border-neutral-600 flex flex-col items-center justify-center gap-1 text-neutral-400 hover:border-primary-400 hover:text-primary-500 transition-colors">
+                <button className="aspect-square rounded-xl border-2 border-dashed border-black dark:border-white/20 flex flex-col items-center justify-center gap-1 text-neutral-400 hover:border-primary-400 hover:text-primary-500 transition-colors">
                   <Camera size={24} />
                   <span className="text-[10px]">Camera</span>
                 </button>
-                <button className="aspect-square rounded-xl border-2 border-dashed border-neutral-300 dark:border-neutral-600 flex flex-col items-center justify-center gap-1 text-neutral-400 hover:border-primary-400 hover:text-primary-500 transition-colors">
+                <button className="aspect-square rounded-xl border-2 border-dashed border-black dark:border-white/20 flex flex-col items-center justify-center gap-1 text-neutral-400 hover:border-primary-400 hover:text-primary-500 transition-colors">
                   <Image size={24} />
                   <span className="text-[10px]">Gallery</span>
                 </button>
@@ -265,7 +265,7 @@ export default function AddRestroomScreen() {
             </div>
 
             {/* Summary */}
-            <div className="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 space-y-2">
+            <div className="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 space-y-2">
               <h3 className="text-sm font-semibold text-neutral-900 dark:text-white">Summary</h3>
               <p className="text-xs text-neutral-500"><span className="font-medium text-neutral-700 dark:text-neutral-300">Name:</span> {formData.name || '—'}</p>
               <p className="text-xs text-neutral-500"><span className="font-medium text-neutral-700 dark:text-neutral-300">Address:</span> {formData.address || '—'}</p>
@@ -276,12 +276,12 @@ export default function AddRestroomScreen() {
       </div>
 
       {/* Bottom actions */}
-      <div className="px-5 py-4 border-t border-neutral-100 dark:border-neutral-800" style={{ paddingBottom: 'max(1rem, calc(env(safe-area-inset-bottom) + 1rem))' }}>
+      <div className="px-5 py-4 border-t-2 border-neutral-200 dark:border-neutral-700" style={{ paddingBottom: 'max(1rem, calc(env(safe-area-inset-bottom) + 1rem))' }}>
         {step < 3 ? (
           <button
             onClick={() => setStep(step + 1)}
             disabled={step === 1 && (!formData.name || !formData.address || !formData.type)}
-            className="w-full py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.98] transition-all"
+            className="w-full py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm border-2 border-black dark:border-white/20 shadow-md disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.98] transition-all"
           >
             Continue
           </button>
@@ -289,7 +289,7 @@ export default function AddRestroomScreen() {
           <button
             onClick={handleSubmit}
             disabled={submitting}
-            className="w-full py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm disabled:opacity-70 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+            className="w-full py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm border-2 border-black dark:border-white/20 shadow-md disabled:opacity-70 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
           >
             {submitting ? (
               <>
@@ -315,8 +315,8 @@ function AmenityToggle({ icon, label, active, onChange }) {
       onClick={onChange}
       className={`flex items-center gap-3 w-full p-3.5 rounded-xl transition-all ${
         active
-          ? 'bg-primary-50 dark:bg-primary-900/20 ring-1 ring-primary-200 dark:ring-primary-800'
-          : 'bg-neutral-50 dark:bg-neutral-800/50 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+          ? 'bg-primary-50 dark:bg-primary-900/20 border-2 border-primary-600 dark:border-primary-400'
+          : 'bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800'
       }`}
       role="switch"
       aria-checked={active}
@@ -325,8 +325,8 @@ function AmenityToggle({ icon, label, active, onChange }) {
       <span className={`flex-1 text-sm font-medium text-left ${active ? 'text-primary-700 dark:text-primary-300' : 'text-neutral-600 dark:text-neutral-400'}`}>
         {label}
       </span>
-      <div className={`w-10 h-6 rounded-full transition-colors duration-200 flex items-center px-0.5 ${active ? 'bg-primary-600' : 'bg-neutral-300 dark:bg-neutral-600'}`}>
-        <div className={`w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${active ? 'translate-x-4' : 'translate-x-0'}`} />
+      <div className={`w-10 h-6 rounded-full transition-colors duration-200 flex items-center px-0.5 border-2 border-black dark:border-white/70 ${active ? 'bg-primary-600' : 'bg-neutral-300 dark:bg-neutral-600'}`}>
+        <div className={`w-5 h-5 rounded-full bg-white border border-black dark:border-white/50 transition-transform duration-200 ${active ? 'translate-x-4' : 'translate-x-0'}`} />
       </div>
     </button>
   )

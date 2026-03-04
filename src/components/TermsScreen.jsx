@@ -111,7 +111,7 @@ export default function TermsScreen() {
       className="fixed inset-0 z-[90] bg-white dark:bg-neutral-950 flex flex-col"
     >
       {/* Header */}
-      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b border-neutral-100 dark:border-neutral-800">
+      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b-2 border-neutral-200 dark:border-neutral-700">
         <button
           onClick={() => setScreen('home')}
           className="touch-target p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
@@ -126,7 +126,7 @@ export default function TermsScreen() {
         {/* Hero */}
         <div className="px-5 pt-6 pb-4">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-11 h-11 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
+            <div className="w-11 h-11 rounded-xl bg-primary-100 dark:bg-primary-900/30 border-2 border-black dark:border-white/20 flex items-center justify-center">
               <FileText size={22} className="text-primary-600 dark:text-primary-400" />
             </div>
             <div>
@@ -142,7 +142,7 @@ export default function TermsScreen() {
         {/* Sections */}
         <div className="px-5 pb-8 space-y-5">
           {sections.map((section, i) => (
-            <div key={i} className="rounded-xl bg-neutral-50 dark:bg-neutral-800/50 p-4">
+            <div key={i} className="rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 p-4">
               <div className="flex items-center gap-2.5 mb-3">
                 <section.icon size={18} className="text-primary-600 dark:text-primary-400" />
                 <h3 className="text-sm font-semibold text-neutral-900 dark:text-white">{section.title}</h3>
@@ -166,7 +166,7 @@ export default function TermsScreen() {
           ))}
 
           {/* Contact */}
-          <div className="p-4 rounded-xl bg-primary-50 dark:bg-primary-900/20 border border-primary-100 dark:border-primary-800">
+          <div className="p-4 rounded-xl bg-primary-50 dark:bg-primary-900/20 border-2 border-black dark:border-white/20">
             <p className="text-sm font-medium text-primary-700 dark:text-primary-300 mb-1">Questions about these Terms?</p>
             <p className="text-xs text-primary-600/70 dark:text-primary-400/70 leading-relaxed">
               If you have questions about these Terms of Service, contact us through the Send Feedback option or email legal@flush.app. We're happy to clarify anything.

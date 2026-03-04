@@ -35,7 +35,7 @@ export default function ProfileScreen() {
       className="fixed inset-0 z-[90] bg-white dark:bg-neutral-950 flex flex-col"
     >
       {/* Header */}
-      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b border-neutral-100 dark:border-neutral-800">
+      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b-2 border-neutral-200 dark:border-neutral-700">
         <button
           onClick={() => setScreen('home')}
           className="touch-target p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
@@ -49,7 +49,7 @@ export default function ProfileScreen() {
       {/* User Card */}
       <div className="px-5 py-5">
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 rounded-2xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
+          <div className="w-16 h-16 rounded-2xl bg-primary-100 dark:bg-primary-900/30 border-2 border-black dark:border-white/20 flex items-center justify-center">
             <User size={28} className="text-primary-600 dark:text-primary-400" />
           </div>
           <div className="flex-1">
@@ -71,7 +71,7 @@ export default function ProfileScreen() {
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-neutral-100 dark:border-neutral-800 px-5">
+      <div className="flex border-b-2 border-neutral-200 dark:border-neutral-700 px-5">
         <TabButton
           label="Saved"
           active={activeTab === 'saved'}
@@ -119,8 +119,8 @@ export default function ProfileScreen() {
             {contributions.length > 0 ? (
               <div className="space-y-2">
                 {contributions.map(c => (
-                  <div key={c.id} className="flex items-center gap-3 p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                  <div key={c.id} className="flex items-center gap-3 p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700">
+                    <div className={`w-8 h-8 rounded-lg border border-black dark:border-white/20 flex items-center justify-center ${
                       c.type === 'added' ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400' :
                       c.type === 'review' ? 'bg-accent-100 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400' :
                       'bg-red-100 dark:bg-red-900/30 text-error'
@@ -131,7 +131,7 @@ export default function ProfileScreen() {
                       <p className="text-sm font-medium text-neutral-900 dark:text-white truncate">{c.name}</p>
                       <div className="flex items-center gap-2 mt-0.5">
                         <span className="text-xs text-neutral-400">{c.date}</span>
-                        <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${
+                        <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full border border-current ${
                           c.status === 'verified' ? 'bg-green-100 text-success dark:bg-green-900/30' :
                           c.status === 'published' ? 'bg-blue-100 text-info dark:bg-blue-900/30' :
                           'bg-amber-100 text-warning dark:bg-amber-900/30'
@@ -170,7 +170,7 @@ export default function ProfileScreen() {
 
 function StatCard({ value, label, icon }) {
   return (
-    <div className="flex-1 p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 text-center">
+    <div className="flex-1 p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 text-center">
       <p className="text-lg font-bold text-neutral-900 dark:text-white">{value}</p>
       <p className="text-xs text-neutral-500 flex items-center justify-center gap-1 mt-0.5">
         {icon} {label}
@@ -196,9 +196,9 @@ function TabButton({ label, active, onClick }) {
 
 function SavedRestroomCard({ restroom, onSelect, onRemove }) {
   return (
-    <div className="flex items-center gap-3 p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50">
+    <div className="flex items-center gap-3 p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700">
       <button onClick={onSelect} className="flex-1 flex items-start gap-3 text-left min-w-0">
-        <div className="w-12 h-12 rounded-lg bg-neutral-200 dark:bg-neutral-700 flex-shrink-0 overflow-hidden">
+        <div className="w-12 h-12 rounded-lg bg-neutral-200 dark:bg-neutral-700 border-2 border-black dark:border-white/20 flex-shrink-0 overflow-hidden">
           {restroom.photos[0] ? (
             <img src={restroom.photos[0]} alt="" className="w-full h-full object-cover" />
           ) : (
@@ -219,7 +219,7 @@ function SavedRestroomCard({ restroom, onSelect, onRemove }) {
       </button>
       <button
         onClick={onRemove}
-        className="touch-target p-2 rounded-lg text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+        className="touch-target p-2 rounded-lg text-red-400 border border-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
         aria-label="Remove from saved"
       >
         <Trash2 size={16} />
@@ -231,7 +231,7 @@ function SavedRestroomCard({ restroom, onSelect, onRemove }) {
 function EmptyState({ icon, title, description }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
-      <div className="w-16 h-16 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-4">
+      <div className="w-16 h-16 rounded-full bg-neutral-100 dark:bg-neutral-800 border-2 border-black dark:border-white/20 flex items-center justify-center mb-4">
         {icon}
       </div>
       <p className="text-sm font-medium text-neutral-600 dark:text-neutral-400">{title}</p>
@@ -242,7 +242,7 @@ function EmptyState({ icon, title, description }) {
 
 function SettingsItem({ label, description }) {
   return (
-    <button className="flex items-center justify-between w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+    <button className="flex items-center justify-between w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
       <div className="text-left">
         <p className="text-sm font-medium text-neutral-900 dark:text-white">{label}</p>
         <p className="text-xs text-neutral-500 mt-0.5">{description}</p>

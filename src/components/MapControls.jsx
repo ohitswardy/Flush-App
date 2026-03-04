@@ -38,7 +38,7 @@ export default function MapControls() {
       <div className="fixed top-[68px] left-4 right-4 z-[45] safe-top">
         <button
           onClick={toggleSearch}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/95 dark:bg-neutral-900/95 backdrop-blur-lg shadow-lg text-left transition-shadow hover:shadow-xl active:scale-[0.99]"
+          className="w-full flex items-center gap-3 px-4 py-3 bg-white dark:bg-neutral-900 shadow-lg border-2 border-black dark:border-white/20 text-left active:scale-[0.99]"
           aria-label="Open search"
         >
           <Search size={18} className="text-neutral-400" />
@@ -48,8 +48,8 @@ export default function MapControls() {
               onClick={(e) => { e.stopPropagation(); toggleFilters() }}
               className={`touch-target p-2 rounded-xl transition-colors ${
                 hasActiveFilters
-                  ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400'
-                  : 'hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-500'
+                  ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 border-2 border-primary-600'
+                  : 'hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-500 border-2 border-neutral-300 dark:border-neutral-600'
               }`}
               aria-label="Open filters"
             >
@@ -65,7 +65,7 @@ export default function MapControls() {
       {/* Offline banner */}
       {isOffline && (
         <div className="fixed top-[128px] left-4 right-4 z-[44] safe-top">
-          <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-warning/10 border border-warning/20 text-warning">
+          <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-warning/10 border-2 border-warning text-warning">
             <AlertTriangle size={16} />
             <span className="text-xs font-medium">You're offline — showing cached results</span>
           </div>
@@ -85,7 +85,7 @@ export default function MapControls() {
             {/* My Location FAB */}
             <button
               onClick={handleLocate}
-              className="touch-target w-12 h-12 rounded-full bg-white dark:bg-neutral-800 shadow-lg flex items-center justify-center text-primary-600 dark:text-primary-400 active:scale-95 transition-all hover:shadow-xl"
+              className="touch-target w-12 h-12 rounded-full bg-white dark:bg-neutral-800 shadow-lg border-2 border-black dark:border-white/20 flex items-center justify-center text-primary-600 dark:text-primary-400 active:scale-95"
               aria-label="Center on my location"
             >
               <Locate size={20} />
@@ -94,7 +94,7 @@ export default function MapControls() {
             {/* Add Restroom FAB */}
             <button
               onClick={() => setScreen('add')}
-              className="touch-target w-14 h-14 rounded-full bg-primary-600 shadow-lg shadow-primary-600/30 flex items-center justify-center text-white active:scale-95 transition-all hover:shadow-xl hover:bg-primary-700"
+              className="touch-target w-14 h-14 rounded-full bg-primary-600 shadow-lg border-2 border-black dark:border-white/20 flex items-center justify-center text-white active:scale-95"
               aria-label="Add a new restroom"
             >
               <Plus size={24} />

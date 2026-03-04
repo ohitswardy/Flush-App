@@ -34,7 +34,7 @@ export default function SettingsScreen() {
       className="fixed inset-0 z-[90] bg-white dark:bg-neutral-950 flex flex-col"
     >
       {/* Header */}
-      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b border-neutral-100 dark:border-neutral-800">
+      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b-2 border-neutral-200 dark:border-neutral-700">
         <button
           onClick={() => setScreen('home')}
           className="touch-target p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
@@ -50,7 +50,7 @@ export default function SettingsScreen() {
         <section className="px-5 pt-5 pb-2">
           <h2 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">Account</h2>
           <div className="space-y-2">
-            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50">
+            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700">
               <div className="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
                 <User size={18} className="text-primary-600 dark:text-primary-400" />
               </div>
@@ -116,7 +116,7 @@ export default function SettingsScreen() {
             />
             <button
               onClick={() => setScreen('privacy')}
-              className="flex items-center gap-3 w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+              className="flex items-center gap-3 w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
             >
               <span className="text-neutral-500 dark:text-neutral-400"><Shield size={18} /></span>
               <div className="flex-1 text-left">
@@ -139,7 +139,7 @@ export default function SettingsScreen() {
             />
             <button
               onClick={() => setCacheDialogOpen(true)}
-              className="flex items-center gap-3 w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors group"
+              className="flex items-center gap-3 w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors group"
             >
               <span className="text-neutral-500 group-hover:text-error transition-colors"><Trash2 size={18} /></span>
               <div className="flex-1 text-left">
@@ -161,7 +161,7 @@ export default function SettingsScreen() {
             />
             <button
               onClick={() => setScreen('terms')}
-              className="flex items-center gap-3 w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+              className="flex items-center gap-3 w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
             >
               <span className="text-neutral-500 dark:text-neutral-400"><Globe size={18} /></span>
               <div className="flex-1 text-left">
@@ -171,7 +171,7 @@ export default function SettingsScreen() {
             </button>
             <button
               onClick={() => setScreen('help')}
-              className="flex items-center gap-3 w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+              className="flex items-center gap-3 w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
             >
               <span className="text-neutral-500 dark:text-neutral-400"><Info size={18} /></span>
               <div className="flex-1 text-left">
@@ -182,7 +182,7 @@ export default function SettingsScreen() {
           </div>
 
           {user && (
-            <button className="flex items-center justify-center gap-2 w-full mt-6 py-3.5 rounded-xl border border-red-200 dark:border-red-800/40 text-error text-sm font-semibold hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors">
+            <button className="flex items-center justify-center gap-2 w-full mt-6 py-3.5 rounded-xl border-2 border-red-500 dark:border-red-500 text-error text-sm font-semibold hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors">
               <LogOut size={16} />
               Sign Out
             </button>
@@ -204,8 +204,8 @@ function SettingsToggle({ icon, label, description, active, onChange }) {
       onClick={onChange}
       className={`flex items-center gap-3 w-full p-3.5 rounded-xl transition-all ${
         active
-          ? 'bg-primary-50 dark:bg-primary-900/20 ring-1 ring-primary-200 dark:ring-primary-800'
-          : 'bg-neutral-50 dark:bg-neutral-800/50 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+          ? 'bg-primary-50 dark:bg-primary-900/20 border-2 border-primary-600 dark:border-primary-400'
+          : 'bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800'
       }`}
       role="switch"
       aria-checked={active}
@@ -219,8 +219,8 @@ function SettingsToggle({ icon, label, description, active, onChange }) {
           <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">{description}</p>
         )}
       </div>
-      <div className={`w-10 h-6 rounded-full transition-colors duration-200 flex items-center px-0.5 ${active ? 'bg-primary-600' : 'bg-neutral-300 dark:bg-neutral-600'}`}>
-        <div className={`w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${active ? 'translate-x-4' : 'translate-x-0'}`} />
+      <div className={`w-10 h-6 rounded-full border-2 border-black dark:border-white/70 transition-colors duration-200 flex items-center px-0.5 ${active ? 'bg-primary-600' : 'bg-neutral-300 dark:bg-neutral-600'}`}>
+        <div className={`w-5 h-5 rounded-full bg-white border border-black dark:border-white/50 transition-transform duration-200 ${active ? 'translate-x-4' : 'translate-x-0'}`} />
       </div>
     </button>
   )
@@ -228,7 +228,7 @@ function SettingsToggle({ icon, label, description, active, onChange }) {
 
 function SettingsNavItem({ icon, label, value }) {
   return (
-    <div className="flex items-center gap-3 w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50">
+    <div className="flex items-center gap-3 w-full p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700">
       <span className="text-neutral-500 dark:text-neutral-400">{icon}</span>
       <span className="flex-1 text-sm font-medium text-neutral-900 dark:text-white">{label}</span>
       <span className="text-xs text-neutral-400">{value}</span>
@@ -255,19 +255,19 @@ function ClearCacheDialog({ onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex items-center justify-center px-8"
+      className="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center px-8"
       onClick={onClose}
     >
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-        className="bg-white dark:bg-neutral-900 rounded-2xl p-6 w-full max-w-[384px] shadow-xl"
+        className="bg-white dark:bg-neutral-900 rounded-2xl p-6 w-full max-w-[384px] shadow-xl border-2 border-black dark:border-white/20"
         onClick={(e) => e.stopPropagation()}
       >
         {cleared ? (
           <div className="text-center py-2">
-            <div className="w-12 h-12 rounded-full bg-success/10 mx-auto flex items-center justify-center mb-3">
+            <div className="w-12 h-12 rounded-full bg-success/10 border-2 border-black dark:border-white/20 mx-auto flex items-center justify-center mb-3">
               <Trash2 size={20} className="text-success" />
             </div>
             <p className="text-sm font-medium text-neutral-900 dark:text-white">Cache cleared successfully</p>
@@ -281,14 +281,14 @@ function ClearCacheDialog({ onClose }) {
             <div className="flex gap-3">
               <button
                 onClick={onClose}
-                className="flex-1 py-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm font-medium text-neutral-700 dark:text-neutral-300 active:scale-[0.98] transition-transform"
+                className="flex-1 py-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 border-2 border-neutral-300 dark:border-neutral-600 text-sm font-medium text-neutral-700 dark:text-neutral-300 active:scale-[0.98] transition-transform"
               >
                 Cancel
               </button>
               <button
                 onClick={handleClear}
                 disabled={clearing}
-                className="flex-1 py-2.5 rounded-xl bg-error text-white text-sm font-semibold active:scale-[0.98] transition-transform disabled:opacity-70"
+                className="flex-1 py-2.5 rounded-xl bg-error text-white border-2 border-black dark:border-white/20 text-sm font-semibold active:scale-[0.98] transition-transform disabled:opacity-70"
               >
                 {clearing ? 'Clearing...' : 'Clear Cache'}
               </button>

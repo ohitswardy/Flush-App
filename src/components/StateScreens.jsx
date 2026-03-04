@@ -20,7 +20,7 @@ export function OfflineState() {
       <p className="text-sm text-neutral-500 dark:text-neutral-400 text-center max-w-[280px]">
         You're currently offline. Some features may be limited, but you can still view cached restrooms.
       </p>
-      <button className="mt-4 px-6 py-3 rounded-xl bg-primary-600 text-white text-sm font-semibold active:scale-95 transition-transform flex items-center gap-2">
+      <button className="mt-4 px-6 py-3 rounded-xl bg-primary-600 text-white text-sm font-semibold border-2 border-black dark:border-white/20 shadow-md active:scale-95 transition-transform flex items-center gap-2">
         <RefreshCw size={16} />
         Try Again
       </button>
@@ -43,11 +43,11 @@ export function LocationDeniedState() {
       <div className="flex gap-3 mt-4">
         <button
           onClick={() => setScreen('home')}
-          className="px-5 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm font-medium text-neutral-700 dark:text-neutral-300 active:scale-95 transition-transform"
+          className="px-5 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm font-medium text-neutral-700 dark:text-neutral-300 border-2 border-neutral-300 dark:border-neutral-600 active:scale-95 transition-transform"
         >
           Search Manually
         </button>
-        <button className="px-5 py-3 rounded-xl bg-primary-600 text-white text-sm font-semibold active:scale-95 transition-transform flex items-center gap-2">
+        <button className="px-5 py-3 rounded-xl bg-primary-600 text-white text-sm font-semibold border-2 border-black dark:border-white/20 shadow-md active:scale-95 transition-transform flex items-center gap-2">
           <Settings size={16} />
           Open Settings
         </button>
@@ -64,9 +64,9 @@ export function EmptyMapState() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white/95 dark:bg-neutral-900/95 backdrop-blur-lg rounded-2xl p-6 shadow-lg mx-8 pointer-events-auto text-center"
+        className="bg-white dark:bg-neutral-900 rounded-2xl p-6 shadow-lg border-2 border-black dark:border-white/20 mx-8 pointer-events-auto text-center"
       >
-        <div className="w-14 h-14 rounded-full bg-neutral-100 dark:bg-neutral-800 mx-auto flex items-center justify-center mb-3">
+        <div className="w-14 h-14 rounded-full bg-neutral-100 dark:bg-neutral-800 border-2 border-black dark:border-white/20 mx-auto flex items-center justify-center mb-3">
           <SearchX size={24} className="text-neutral-400" />
         </div>
         <h3 className="text-base font-semibold text-neutral-900 dark:text-white mb-1">No Restrooms Found</h3>
@@ -75,7 +75,7 @@ export function EmptyMapState() {
         </p>
         <button
           onClick={resetFilters}
-          className="px-5 py-2.5 rounded-xl bg-primary-600 text-white text-sm font-semibold active:scale-95 transition-transform"
+          className="px-5 py-2.5 rounded-xl bg-primary-600 text-white text-sm font-semibold border-2 border-black dark:border-white/20 active:scale-95 transition-transform"
         >
           Clear Filters
         </button>
@@ -97,7 +97,7 @@ export function ErrorState({ message, onRetry }) {
       {onRetry && (
         <button
           onClick={onRetry}
-          className="mt-4 px-6 py-3 rounded-xl bg-primary-600 text-white text-sm font-semibold active:scale-95 transition-transform flex items-center gap-2"
+          className="mt-4 px-6 py-3 rounded-xl bg-primary-600 text-white text-sm font-semibold border-2 border-black dark:border-white/20 shadow-md active:scale-95 transition-transform flex items-center gap-2"
         >
           <RefreshCw size={16} />
           Retry
@@ -109,13 +109,13 @@ export function ErrorState({ message, onRetry }) {
 
 export function LoadingState() {
   return (
-    <div className="absolute inset-0 z-[35] flex items-center justify-center bg-white/80 dark:bg-neutral-950/80 backdrop-blur-sm">
+    <div className="absolute inset-0 z-[35] flex items-center justify-center bg-white dark:bg-neutral-950">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="flex flex-col items-center"
       >
-        <div className="w-12 h-12 rounded-2xl bg-primary-600 flex items-center justify-center shadow-lg mb-3">
+        <div className="w-12 h-12 rounded-2xl bg-primary-600 border-2 border-black dark:border-white/20 flex items-center justify-center shadow-lg mb-3">
           <MapPin size={24} className="text-white animate-bounce" />
         </div>
         <p className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Finding restrooms...</p>
@@ -138,7 +138,7 @@ function StateIcon({ children, color }) {
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ type: 'spring', damping: 15 }}
-      className={`w-20 h-20 rounded-full ${color} flex items-center justify-center mb-2`}
+      className={`w-20 h-20 rounded-full ${color} border-2 border-black dark:border-white/20 flex items-center justify-center mb-2`}
     >
       {children}
     </motion.div>

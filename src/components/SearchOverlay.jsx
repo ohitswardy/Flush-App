@@ -68,7 +68,7 @@ export default function SearchOverlay() {
             <div className="flex items-center gap-3">
               <button
                 onClick={toggleSearch}
-                className="touch-target p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                className="touch-target p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
                 aria-label="Close search"
               >
                 <ArrowLeft size={22} className="text-neutral-700 dark:text-neutral-300" />
@@ -81,7 +81,7 @@ export default function SearchOverlay() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search restrooms, places..."
-                  className="w-full pl-10 pr-10 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-[15px] text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-primary-500/30 transition-shadow"
+                  className="w-full pl-10 pr-10 py-3 bg-neutral-100 dark:bg-neutral-800 text-[15px] text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none border-2 border-black dark:border-white/20 focus:ring-2 focus:ring-primary-500/30"
                   aria-label="Search restrooms"
                 />
                 {searchQuery && (
@@ -112,7 +112,7 @@ export default function SearchOverlay() {
             ) : searchQuery.trim() ? (
               // No results
               <div className="flex flex-col items-center justify-center pt-20 text-center">
-                <div className="w-16 h-16 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-neutral-100 dark:bg-neutral-800 border-2 border-black dark:border-white/20 flex items-center justify-center mb-4">
                   <Search size={24} className="text-neutral-400" />
                 </div>
                 <p className="text-sm font-medium text-neutral-600 dark:text-neutral-400">No results found</p>
@@ -128,7 +128,7 @@ export default function SearchOverlay() {
                       <button
                         key={i}
                         onClick={() => handleSuggestion(term)}
-                        className="flex items-center gap-3 w-full py-3 text-left hover:bg-neutral-50 dark:hover:bg-neutral-800/50 rounded-lg px-2 transition-colors"
+                        className="flex items-center gap-3 w-full py-3 text-left hover:bg-neutral-100 dark:hover:bg-neutral-800 px-2 border-b border-neutral-200 dark:border-neutral-700 transition-colors"
                       >
                         <Clock size={16} className="text-neutral-400" />
                         <span className="text-sm text-neutral-700 dark:text-neutral-300">{term}</span>
@@ -145,7 +145,7 @@ export default function SearchOverlay() {
                       <button
                         key={i}
                         onClick={() => handleSuggestion(s)}
-                        className="px-3 py-2 rounded-full bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 hover:text-primary-700 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 transition-colors"
+                        className="px-3 py-2 bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-700 dark:text-neutral-300 border-2 border-black dark:border-white/20 hover:bg-primary-50 hover:text-primary-700 dark:hover:bg-primary-900/30 dark:hover:text-primary-400"
                       >
                         {s}
                       </button>
@@ -181,10 +181,10 @@ function SearchResultItem({ restroom, onSelect }) {
   return (
     <button
       onClick={() => onSelect(restroom)}
-      className="flex items-start gap-3 w-full py-3 px-2 text-left hover:bg-neutral-50 dark:hover:bg-neutral-800/50 rounded-xl transition-colors"
+      className="flex items-start gap-3 w-full py-3 px-2 text-left hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors border-b-2 border-neutral-100 dark:border-neutral-800"
     >
       {/* Thumbnail */}
-      <div className="w-14 h-14 rounded-xl bg-neutral-200 dark:bg-neutral-700 flex-shrink-0 overflow-hidden">
+      <div className="w-14 h-14 bg-neutral-200 dark:bg-neutral-700 border-2 border-black dark:border-white/20 flex-shrink-0 overflow-hidden">
         {restroom.photos[0] ? (
           <img src={restroom.photos[0]} alt="" className="w-full h-full object-cover" />
         ) : (
@@ -222,7 +222,7 @@ function QuickFilterCard({ icon, label, color, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-2 p-3 rounded-xl ${color} transition-all active:scale-95`}
+      className={`flex items-center gap-2 p-3 ${color} border-2 border-black dark:border-white/20 shadow-sm active:scale-95`}
     >
       {icon}
       <span className="text-sm font-medium">{label}</span>

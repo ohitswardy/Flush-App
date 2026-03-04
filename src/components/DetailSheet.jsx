@@ -42,7 +42,7 @@ export default function DetailSheet() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[39] bg-black/20"
+              className="fixed inset-0 z-[39] bg-black/50"
               onClick={closeDetail}
             />
           )}
@@ -52,7 +52,7 @@ export default function DetailSheet() {
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className={`fixed bottom-0 left-0 right-0 z-[40] bg-white dark:bg-neutral-900 rounded-t-3xl shadow-sheet transition-all duration-300 ${
+            className={`fixed bottom-0 left-0 right-0 z-[40] bg-white dark:bg-neutral-900 rounded-t-3xl border-t-[3px] border-black dark:border-white/20 shadow-sheet transition-all duration-300 ${
               detailFull ? 'top-[148px]' : 'max-h-[45vh]'
             } flex flex-col`}
           >
@@ -134,7 +134,7 @@ export default function DetailSheet() {
 
                 {/* Action buttons */}
                 <div className="flex gap-2 mt-4">
-                  <button className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-primary-600 text-white font-semibold text-sm shadow-md shadow-primary-600/20 active:scale-[0.98] transition-transform">
+                  <button className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-primary-600 text-white font-semibold text-sm shadow-md border-2 border-black dark:border-white/20 active:scale-[0.98] transition-transform">
                     <Navigation size={16} />
                     Directions
                   </button>
@@ -142,14 +142,14 @@ export default function DetailSheet() {
                     onClick={() => toggleSaved(selectedRestroom.id)}
                     className={`touch-target p-3 rounded-xl transition-all active:scale-95 ${
                       isSaved
-                        ? 'bg-red-50 dark:bg-red-900/20 text-red-500'
-                        : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400'
+                        ? 'bg-red-50 dark:bg-red-900/20 text-red-500 border-2 border-red-500'
+                        : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 border-2 border-neutral-300 dark:border-neutral-600'
                     }`}
                     aria-label={isSaved ? 'Remove from saved' : 'Save restroom'}
                   >
                     <Heart size={18} fill={isSaved ? 'currentColor' : 'none'} />
                   </button>
-                  <button className="touch-target p-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 active:scale-95 transition-transform" aria-label="Share">
+                  <button className="touch-target p-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 border-2 border-neutral-300 dark:border-neutral-600 active:scale-95 transition-transform" aria-label="Share">
                     <Share2 size={18} />
                   </button>
                 </div>
@@ -171,11 +171,11 @@ export default function DetailSheet() {
                             key={i}
                             src={photo}
                             alt={`${selectedRestroom.name} photo ${i + 1}`}
-                            className="w-48 h-32 rounded-xl object-cover flex-shrink-0"
+                            className="w-48 h-32 rounded-xl object-cover flex-shrink-0 border-2 border-black dark:border-white/20"
                             loading="lazy"
                           />
                         ))}
-                        <button className="w-24 h-32 rounded-xl bg-neutral-100 dark:bg-neutral-800 flex flex-col items-center justify-center gap-1 flex-shrink-0 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
+                        <button className="w-24 h-32 rounded-xl bg-neutral-100 dark:bg-neutral-800 border-2 border-black dark:border-white/20 flex flex-col items-center justify-center gap-1 flex-shrink-0 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
                           <Camera size={20} />
                           <span className="text-xs">Add</span>
                         </button>
@@ -184,7 +184,7 @@ export default function DetailSheet() {
                   )}
 
                   {/* Hours */}
-                  <div className="px-5 py-3 border-t border-neutral-100 dark:border-neutral-800">
+                  <div className="px-5 py-3 border-t-2 border-neutral-200 dark:border-neutral-700">
                     <div className="flex items-center gap-2 text-sm">
                       <Clock size={16} className="text-neutral-400" />
                       <span className="font-medium text-neutral-700 dark:text-neutral-300">Hours</span>
@@ -193,7 +193,7 @@ export default function DetailSheet() {
                   </div>
 
                   {/* Last verified */}
-                  <div className="px-5 py-3 border-t border-neutral-100 dark:border-neutral-800">
+                  <div className="px-5 py-3 border-t-2 border-neutral-200 dark:border-neutral-700">
                     <div className="flex items-center gap-2 text-sm">
                       <CheckCircle2 size={16} className="text-primary-500" />
                       <span className="font-medium text-neutral-700 dark:text-neutral-300">Last verified</span>
@@ -202,7 +202,7 @@ export default function DetailSheet() {
                   </div>
 
                   {/* Reviews */}
-                  <div className="px-5 py-4 border-t border-neutral-100 dark:border-neutral-800">
+                  <div className="px-5 py-4 border-t-2 border-neutral-200 dark:border-neutral-700">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-sm font-semibold text-neutral-900 dark:text-white">
                         Reviews ({selectedRestroom.reviewCount})
@@ -222,13 +222,13 @@ export default function DetailSheet() {
                       <p className="text-sm text-neutral-400 text-center py-4">No reviews yet. Be the first!</p>
                     )}
 
-                    <button className="w-full mt-3 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-700 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors">
+                    <button className="w-full mt-3 py-2.5 rounded-xl border-2 border-black dark:border-white/20 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors">
                       Write a Review
                     </button>
                   </div>
 
                   {/* Report / Actions */}
-                  <div className="px-5 py-4 border-t border-neutral-100 dark:border-neutral-800 safe-bottom">
+                  <div className="px-5 py-4 border-t-2 border-neutral-200 dark:border-neutral-700 safe-bottom">
                     <button
                       onClick={() => setScreen('report')}
                       className="flex items-center gap-2 w-full py-2.5 text-sm text-neutral-500 dark:text-neutral-400 hover:text-error transition-colors"
@@ -262,7 +262,7 @@ export default function DetailSheet() {
 
 function AmenityPill({ icon, label, color }) {
   return (
-    <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-[11px] font-medium ${color}`}>
+    <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-[11px] font-medium border border-black/20 dark:border-white/10 ${color}`}>
       {icon}
       {label}
     </span>
@@ -271,10 +271,10 @@ function AmenityPill({ icon, label, color }) {
 
 function ReviewCard({ review }) {
   return (
-    <div className="p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50">
+    <div className="p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center text-xs font-bold text-primary-600 dark:text-primary-400">
+          <div className="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900/40 border-2 border-black dark:border-white/20 flex items-center justify-center text-xs font-bold text-primary-600 dark:text-primary-400">
             {review.user[0]}
           </div>
           <div>

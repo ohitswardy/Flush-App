@@ -51,7 +51,7 @@ export default function ReportScreen() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', damping: 15, delay: 0.1 }}
-          className="w-20 h-20 rounded-full bg-success/10 flex items-center justify-center mb-6"
+          className="w-20 h-20 rounded-full bg-success/10 border-2 border-black dark:border-white/20 flex items-center justify-center mb-6"
         >
           <CheckCircle2 size={40} className="text-success" />
         </motion.div>
@@ -61,7 +61,7 @@ export default function ReportScreen() {
         </p>
         <button
           onClick={() => setScreen('home')}
-          className="w-full max-w-[320px] py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm active:scale-[0.98] transition-transform"
+          className="w-full max-w-[320px] py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm border-2 border-black dark:border-white/20 shadow-md active:scale-[0.98] transition-transform"
         >
           Back to Map
         </button>
@@ -76,7 +76,7 @@ export default function ReportScreen() {
       className="fixed inset-0 z-[90] bg-white dark:bg-neutral-950 flex flex-col"
     >
       {/* Header */}
-      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b border-neutral-100 dark:border-neutral-800">
+      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b-2 border-neutral-200 dark:border-neutral-700">
         <button
           onClick={() => setScreen('home')}
           className="touch-target p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
@@ -90,7 +90,7 @@ export default function ReportScreen() {
       <div className="flex-1 overflow-y-auto px-5 py-5">
         {/* Restroom info */}
         {selectedRestroom && (
-          <div className="p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 mb-5">
+          <div className="p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 mb-5">
             <p className="text-sm font-medium text-neutral-900 dark:text-white">{selectedRestroom.name}</p>
             <p className="text-xs text-neutral-500 mt-0.5">{selectedRestroom.address}</p>
           </div>
@@ -105,8 +105,8 @@ export default function ReportScreen() {
               onClick={() => setSelectedIssue(issue.value)}
               className={`flex items-center gap-3 w-full p-3.5 rounded-xl transition-all ${
                 selectedIssue === issue.value
-                  ? 'bg-primary-50 dark:bg-primary-900/20 ring-1 ring-primary-200 dark:ring-primary-800'
-                  : 'bg-neutral-50 dark:bg-neutral-800/50 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                  ? 'bg-primary-50 dark:bg-primary-900/20 border-2 border-primary-600 dark:border-primary-400'
+                  : 'bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800'
               }`}
             >
               <issue.icon size={20} className={selectedIssue === issue.value ? 'text-primary-600 dark:text-primary-400' : issue.color} />
@@ -129,23 +129,23 @@ export default function ReportScreen() {
             onChange={(e) => setDetails(e.target.value)}
             placeholder="Describe the issue in more detail..."
             rows={3}
-            className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-primary-500/30 resize-none"
+            className="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none border-2 border-black dark:border-white/20 focus:ring-2 focus:ring-primary-500/30 resize-none"
           />
         </div>
 
         {/* Photo */}
-        <button className="flex items-center gap-2 px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors w-full">
+        <button className="flex items-center gap-2 px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-500 dark:text-neutral-400 border-2 border-black dark:border-white/20 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors w-full">
           <Camera size={18} />
           Attach a photo (optional)
         </button>
       </div>
 
       {/* Submit */}
-      <div className="px-5 pb-6 pt-3 safe-bottom border-t border-neutral-100 dark:border-neutral-800">
+      <div className="px-5 pb-6 pt-3 safe-bottom border-t-2 border-neutral-200 dark:border-neutral-700">
         <button
           onClick={handleSubmit}
           disabled={!selectedIssue || submitting}
-          className="w-full py-3.5 rounded-2xl bg-error text-white font-semibold text-sm disabled:opacity-40 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+          className="w-full py-3.5 rounded-2xl bg-error text-white font-semibold text-sm border-2 border-black dark:border-white/20 shadow-md disabled:opacity-40 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
         >
           {submitting ? (
             <>

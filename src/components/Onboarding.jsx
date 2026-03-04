@@ -163,7 +163,7 @@ export default function Onboarding() {
             animate={{ opacity: 1 }}
             whileHover={{ x: 1, y: 1 }}
             whileTap={{ scale: 0.95 }}
-            className="absolute top-4 right-5 safe-top z-10 px-4 py-1.5 text-[13px] font-black uppercase tracking-[0.15em] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 text-neutral-900 bg-[#FFFDF0] dark:bg-neutral-900 border-2 border-black dark:border-white shadow-md"
+            className="absolute top-4 right-5 safe-top z-10 px-4 py-1.5 text-[13px] font-black uppercase tracking-[0.15em] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-300 text-neutral-900 dark:text-white bg-[#FFFDF0] border-2 border-black dark:border-white/20 shadow-md"
           >
             Skip
           </motion.button>
@@ -180,7 +180,7 @@ export default function Onboarding() {
             exit="exit"
             transition={transition}
             className={current === 2
-              ? 'w-full h-full flex items-center justify-center overflow-hidden px-4'
+              ? 'w-full absolute inset-0 bottom-[18%] flex items-center justify-center overflow-hidden'
               : isSignInSlide
                 ? 'flex flex-col items-center justify-center gap-3'
                 : 'w-56 h-56 sm:w-72 sm:h-72 flex items-center justify-center'
@@ -198,7 +198,7 @@ export default function Onboarding() {
                 src={slide.image}
                 alt=""
                 className={current === 2
-                  ? 'max-w-2xl h-auto object-contain'
+                  ? 'w-full h-full object-cover'
                   : 'w-full h-full object-contain border-2 border-black dark:border-white shadow-md'
                 }
                 draggable={false}

@@ -21,7 +21,7 @@ export default function FilterSheet() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[55] bg-black/30 backdrop-blur-sm"
+            className="fixed inset-0 z-[55] bg-black/60"
             onClick={toggleFilters}
           />
 
@@ -31,7 +31,7 @@ export default function FilterSheet() {
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed bottom-0 left-0 right-0 z-[56] bg-white dark:bg-neutral-900 rounded-t-3xl max-h-[80vh] flex flex-col"
+            className="fixed bottom-0 left-0 right-0 z-[56] bg-white dark:bg-neutral-900 rounded-t-3xl border-t-[3px] border-black dark:border-white/20 max-h-[80vh] flex flex-col"
           >
             <div className="sheet-handle" />
 
@@ -42,7 +42,7 @@ export default function FilterSheet() {
                 {hasActiveFilters && (
                   <button
                     onClick={resetFilters}
-                    className="flex items-center gap-1 text-xs font-medium text-primary-600 dark:text-primary-400 px-2 py-1 rounded-lg hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors"
+                    className="flex items-center gap-1 text-xs font-medium text-primary-600 dark:text-primary-400 px-2 py-1 hover:bg-primary-50 dark:hover:bg-primary-900/20 border border-black dark:border-white/20 transition-colors"
                   >
                     <RotateCcw size={12} />
                     Reset
@@ -70,8 +70,8 @@ export default function FilterSheet() {
                       onClick={() => setFilters({ radius: r })}
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                         activeFilters.radius === r
-                          ? 'bg-primary-600 text-white shadow-md shadow-primary-600/20'
-                          : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700'
+                          ? 'bg-primary-600 text-white shadow-md border-2 border-black dark:border-white/20'
+                          : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 border-2 border-neutral-300 dark:border-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-700'
                       }`}
                     >
                       {r < 1000 ? `${r}m` : `${r / 1000}km`}
@@ -90,8 +90,8 @@ export default function FilterSheet() {
                       onClick={() => setFilters({ minRating: r })}
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                         activeFilters.minRating === r
-                          ? 'bg-primary-600 text-white shadow-md shadow-primary-600/20'
-                          : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700'
+                          ? 'bg-primary-600 text-white shadow-md border-2 border-black dark:border-white/20'
+                          : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 border-2 border-neutral-300 dark:border-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-700'
                       }`}
                     >
                       {r === 0 ? 'Any' : `${r}★+`}
@@ -145,10 +145,10 @@ export default function FilterSheet() {
           </div>
 
           {/* Sticky Apply button footer */}
-          <div className="px-5 py-4 bg-white dark:bg-neutral-900 border-t border-neutral-100 dark:border-neutral-800" style={{ paddingBottom: 'max(1rem, calc(env(safe-area-inset-bottom) + 1rem))' }}>
+          <div className="px-5 py-4 bg-white dark:bg-neutral-900 border-t-2 border-neutral-200 dark:border-neutral-700" style={{ paddingBottom: 'max(1rem, calc(env(safe-area-inset-bottom) + 1rem))' }}>
               <button
                 onClick={toggleFilters}
-                className="w-full py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm shadow-lg shadow-primary-600/20 active:scale-[0.98] transition-transform"
+                className="w-full py-3.5 rounded-2xl bg-primary-600 text-white font-semibold text-sm shadow-lg border-2 border-black dark:border-white/20 active:scale-[0.98] transition-transform"
               >
                 Apply Filters
               </button>
@@ -166,8 +166,8 @@ function FilterToggle({ label, description, active, onChange, badgeColor }) {
       onClick={onChange}
       className={`flex items-center gap-3 w-full p-3 rounded-xl transition-all ${
         active
-          ? 'bg-primary-50 dark:bg-primary-900/20 ring-1 ring-primary-200 dark:ring-primary-800'
-          : 'bg-neutral-50 dark:bg-neutral-800/50 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+          ? 'bg-primary-50 dark:bg-primary-900/20 border-2 border-primary-600 dark:border-primary-400'
+          : 'bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800'
       }`}
       role="switch"
       aria-checked={active}
@@ -181,8 +181,8 @@ function FilterToggle({ label, description, active, onChange, badgeColor }) {
         </p>
         <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">{description}</p>
       </div>
-      <div className={`w-10 h-6 rounded-full transition-colors duration-200 flex items-center px-0.5 ${active ? 'bg-primary-600' : 'bg-neutral-300 dark:bg-neutral-600'}`}>
-        <div className={`w-5 h-5 rounded-full bg-white shadow transition-transform duration-200 ${active ? 'translate-x-4' : 'translate-x-0'}`} />
+      <div className={`w-10 h-6 rounded-full transition-colors duration-200 flex items-center px-0.5 border-2 border-black dark:border-white/70 ${active ? 'bg-primary-600' : 'bg-neutral-300 dark:bg-neutral-600'}`}>
+        <div className={`w-5 h-5 rounded-full bg-white border border-black dark:border-white/50 transition-transform duration-200 ${active ? 'translate-x-4' : 'translate-x-0'}`} />
       </div>
     </button>
   )

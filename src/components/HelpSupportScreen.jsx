@@ -95,7 +95,7 @@ export default function HelpSupportScreen() {
       className="fixed inset-0 z-[90] bg-white dark:bg-neutral-950 flex flex-col"
     >
       {/* Header */}
-      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b border-neutral-100 dark:border-neutral-800">
+      <div className="safe-top flex items-center gap-3 px-4 pt-3 pb-2 border-b-2 border-neutral-200 dark:border-neutral-700">
         <button
           onClick={() => setScreen('home')}
           className="touch-target p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
@@ -110,7 +110,7 @@ export default function HelpSupportScreen() {
         {/* Hero */}
         <div className="px-5 pt-6 pb-2">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-11 h-11 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
+            <div className="w-11 h-11 rounded-xl bg-primary-100 dark:bg-primary-900/30 border-2 border-black dark:border-white/20 flex items-center justify-center">
               <HelpCircle size={22} className="text-primary-600 dark:text-primary-400" />
             </div>
             <div>
@@ -127,7 +127,7 @@ export default function HelpSupportScreen() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search help topics..."
-              className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-primary-500/30 transition-shadow"
+              className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 border-2 border-black dark:border-white/20 text-sm text-neutral-900 dark:text-white placeholder:text-neutral-400 outline-none focus:ring-2 focus:ring-primary-500/30"
             />
           </div>
         </div>
@@ -137,14 +137,14 @@ export default function HelpSupportScreen() {
           <div className="grid grid-cols-2 gap-2">
             <button
               onClick={() => setScreen('feedback')}
-              className="flex items-center gap-2.5 p-3 rounded-xl bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 active:scale-[0.98] transition-transform"
+              className="flex items-center gap-2.5 p-3 rounded-xl bg-primary-50 dark:bg-primary-900/20 border-2 border-black dark:border-white/20 text-primary-700 dark:text-primary-300 active:scale-[0.98] transition-transform"
             >
               <MessageSquare size={18} />
               <span className="text-sm font-medium">Send Feedback</span>
             </button>
             <a
               href="mailto:support@flush.app"
-              className="flex items-center gap-2.5 p-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 active:scale-[0.98] transition-transform"
+              className="flex items-center gap-2.5 p-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border-2 border-black dark:border-white/20 text-neutral-700 dark:text-neutral-300 active:scale-[0.98] transition-transform"
             >
               <Mail size={18} />
               <span className="text-sm font-medium">Email Us</span>
@@ -163,7 +163,7 @@ export default function HelpSupportScreen() {
               {filteredFaqs.map((faq) => (
                 <div
                   key={faq.id}
-                  className="rounded-xl bg-neutral-50 dark:bg-neutral-800/50 overflow-hidden"
+                  className="rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border-2 border-neutral-200 dark:border-neutral-700 overflow-hidden"
                 >
                   <button
                     onClick={() => toggleFaq(faq.id)}
@@ -203,7 +203,7 @@ export default function HelpSupportScreen() {
             </div>
           ) : (
             <div className="flex flex-col items-center py-12 text-center">
-              <div className="w-14 h-14 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-3">
+              <div className="w-14 h-14 rounded-full bg-neutral-100 dark:bg-neutral-800 border-2 border-black dark:border-white/20 flex items-center justify-center mb-3">
                 <Search size={22} className="text-neutral-400" />
               </div>
               <p className="text-sm font-medium text-neutral-600 dark:text-neutral-400">No matching topics</p>
@@ -212,14 +212,14 @@ export default function HelpSupportScreen() {
           )}
 
           {/* Still need help */}
-          <div className="mt-6 p-4 rounded-xl bg-primary-50 dark:bg-primary-900/20 border border-primary-100 dark:border-primary-800">
+          <div className="mt-6 p-4 rounded-xl bg-primary-50 dark:bg-primary-900/20 border-2 border-black dark:border-white/20">
             <p className="text-sm font-medium text-primary-700 dark:text-primary-300 mb-1">Still need help?</p>
             <p className="text-xs text-primary-600/70 dark:text-primary-400/70 leading-relaxed mb-3">
               Our support team typically responds within 24 hours. You can also send feedback directly from the app.
             </p>
             <button
               onClick={() => setScreen('feedback')}
-              className="px-4 py-2 rounded-lg bg-primary-600 text-white text-xs font-semibold active:scale-[0.98] transition-transform"
+              className="px-4 py-2 rounded-lg bg-primary-600 text-white border-2 border-black dark:border-white/20 text-xs font-semibold active:scale-[0.98] transition-transform"
             >
               Contact Support
             </button>
