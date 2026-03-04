@@ -84,7 +84,7 @@ const progressVariants = {
   },
 }
 
-const brandName = 'FLUSH'
+const brandName = 'F  L  U  S  H'
 
 export default function LoadingScreen() {
   return (
