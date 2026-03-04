@@ -51,8 +51,9 @@ export default function DetailSheet() {
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
-            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className={`fixed bottom-0 left-0 right-0 z-[40] bg-white dark:bg-neutral-900 rounded-t-3xl border-t-[3px] border-black dark:border-white/20 shadow-sheet transition-all duration-300 ${
+            transition={{ type: 'tween', duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
+            style={{ willChange: 'transform' }}
+            className={`fixed bottom-0 left-0 right-0 z-[40] bg-white dark:bg-neutral-900 rounded-t-3xl border-t-[3px] border-black dark:border-white/20 shadow-sheet transition-[max-height,top] duration-300 ease-out ${
               detailFull ? 'top-[148px]' : 'max-h-[45vh]'
             } flex flex-col`}
           >
