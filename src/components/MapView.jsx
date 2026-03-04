@@ -22,40 +22,86 @@ const MARKER_COLORS = {
 
 function createCustomIcon(type = 'default', isSelected = false) {
   const color = MARKER_COLORS[type] || MARKER_COLORS.default
-  const size = isSelected ? 48 : 40
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 52" width="${size}" height="${size * 1.3}">
-      <defs>
-        <filter id="shadow" x="-20%" y="-10%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
-        </filter>
-      </defs>
-      <path d="M20 0C8.954 0 0 8.954 0 20c0 14.667 20 32 20 32s20-17.333 20-32C40 8.954 31.046 0 20 0z" fill="${color}" filter="url(#shadow)"/>
-      <circle cx="20" cy="18" r="10" fill="white" opacity="0.95"/>
-      <circle cx="20" cy="18" r="4" fill="${color}"/>
-    </svg>
+  const size = isSelected ? 44 : 36
+  const borderW = 3
+  const shadowOffset = isSelected ? 5 : 3
+  const pointerH = isSelected ? 10 : 8
+  const sq = Math.round(size * 0.4)
+
+  const html = `
+    <div style="
+      position: relative;
+      width: ${size}px;
+      height: ${size + pointerH}px;
+      filter: drop-shadow(${shadowOffset}px ${shadowOffset}px 0 rgba(0,0,0,0.9));
+      transition: transform 0.12s ease, filter 0.12s ease;
+    " class="neo-marker">
+      <div style="
+        width: ${size}px;
+        height: ${size}px;
+        background: ${color};
+        border: ${borderW}px solid #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      ">
+        <div style="width:${sq}px;height:${sq}px;background:#fff;"></div>
+      </div>
+      <div style="
+        width: 0; height: 0;
+        border-left: ${size / 2}px solid transparent;
+        border-right: ${size / 2}px solid transparent;
+        border-top: ${pointerH}px solid #000;
+        position: absolute; bottom: 0; left: 0;
+      "></div>
+      <div style="
+        width: 0; height: 0;
+        border-left: ${(size - borderW * 2) / 2}px solid transparent;
+        border-right: ${(size - borderW * 2) / 2}px solid transparent;
+        border-top: ${pointerH - 2}px solid ${color};
+        position: absolute; bottom: 2px; left: ${borderW}px;
+      "></div>
+    </div>
   `
   return L.divIcon({
-    className: 'custom-div-icon',
-    html: svg,
-    iconSize: [size, size * 1.3],
-    iconAnchor: [size / 2, size * 1.3],
-    popupAnchor: [0, -size],
+    className: 'neo-brutalist-marker',
+    html,
+    iconSize: [size, size + pointerH],
+    iconAnchor: [size / 2, size + pointerH],
+    popupAnchor: [0, -(size + pointerH)],
   })
 }
 
 function createUserIcon() {
-  const svg = `
-    <div style="position:relative;width:24px;height:24px;">
-      <div style="position:absolute;inset:0;border-radius:50%;background:#0d9488;opacity:0.2;animation:pulse-ring 1.5s ease-out infinite;"></div>
-      <div style="position:absolute;inset:4px;border-radius:50%;background:#0d9488;border:3px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.3);"></div>
+  const html = `
+    <div style="position:relative;width:28px;height:28px;">
+      <div style="
+        position:absolute;
+        inset: 0;
+        background: #0d9488;
+        opacity: 0.2;
+        animation: pulse-ring 1.5s ease-out infinite;
+      "></div>
+      <div style="
+        position:absolute;
+        inset: 4px;
+        background: #0d9488;
+        border: 3px solid #000;
+        box-shadow: 2px 2px 0 #000;
+      ">
+        <div style="
+          position:absolute;
+          inset: 2px;
+          border: 1.5px solid rgba(255,255,255,0.6);
+        "></div>
+      </div>
     </div>
   `
   return L.divIcon({
-    className: 'user-location-icon',
-    html: svg,
-    iconSize: [24, 24],
-    iconAnchor: [12, 12],
+    className: 'neo-brutalist-user-marker',
+    html,
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
   })
 }
 

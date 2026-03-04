@@ -35,7 +35,7 @@ export default function TopNav() {
           >
             <img src="/FlushIcon.png" alt="Flush" className="w-7 h-7 rounded-lg object-contain" />
             <span className="text-[15px] font-bold tracking-tight text-neutral-900 dark:text-white">
-              FLUSH
+              F L U S H
             </span>
           </button>
 
@@ -105,7 +105,7 @@ function SideMenu() {
       >
         {/* Close */}
         <div className="flex items-center justify-between px-5 pb-3" style={{ paddingTop: 'max(1rem, calc(env(safe-area-inset-top) + 1rem))' }}>
-          <span className="text-lg font-semibold text-neutral-900 dark:text-white">FLUSH</span>
+          <span className="text-lg font-semibold text-neutral-900 dark:text-white">F L U S H</span>
           <button onClick={closeMenu} className="touch-target rounded-full p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors" aria-label="Close menu">
             <X size={20} className="text-neutral-600 dark:text-neutral-400" />
           </button>

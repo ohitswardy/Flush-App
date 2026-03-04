@@ -2,13 +2,14 @@ import { createContext, useContext, useReducer, useCallback, useEffect } from 'r
 
 const AppContext = createContext(null)
 
-// Initialize dark mode from localStorage or system preference
+// Initialize dark mode from localStorage only (app-controlled, not browser-controlled)
 const getInitialDarkMode = () => {
   const stored = localStorage.getItem('flush_dark')
   if (stored !== null) {
     return stored === 'true'
   }
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches || false
+  // Default to dark mode on first visit; user can toggle in Settings
+  return true
 }
 
 const initialState = {
